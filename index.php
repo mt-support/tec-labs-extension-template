@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:     [Base Plugin Name] Extension: [Extension name]
+ * Plugin Name:     [Base Plugin Name] Extension: [Extension Name]
  * Description:     [Extension Description]
  * Version:         1.0.0
  * Extension Class: Tribe__Extension__[Example]
@@ -8,6 +8,16 @@
  * Author URI:      http://m.tri.be/1971
  * License:         GPLv2 or later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
+ *
+ *     [Extension Name] is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 2 of the License, or
+ *     any later version.
+ *
+ *     [Extension Name] is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ *     GNU General Public License for more details.
  */
 
 // Do not load unless Tribe Common is fully loaded.
