@@ -6,8 +6,8 @@
  * Extension Class: Tribe__Extension__[Example]
  * Author:          Modern Tribe, Inc.
  * Author URI:      http://m.tri.be/1971
- * License:         GPLv2 or later
- * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
+ * License:         GPL version 3 or any later version
+ * License URI:     https://www.gnu.org/licenses/gpl-3.0.html
  *
  *     [Extension Name] is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
