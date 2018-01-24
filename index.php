@@ -3,7 +3,7 @@
  * Plugin Name:     [Base Plugin Name] Extension: [Extension Name]
  * Description:     [Extension Description]
  * Version:         1.0.0
- * Extension Class: Tribe__Extension__[Example]
+ * Extension Class: Tribe__Extension__Example
  * Author:          Modern Tribe, Inc.
  * Author URI:      http://m.tri.be/1971
  * License:         GPL version 3 or any later version
