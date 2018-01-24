@@ -9,12 +9,12 @@
  * License:         GPL version 3 or any later version
  * License URI:     https://www.gnu.org/licenses/gpl-3.0.html
  *
- *     [Extension Name] is free software: you can redistribute it and/or modify
+ *     This plugin is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
  *     any later version.
  *
- *     [Extension Name] is distributed in the hope that it will be useful,
+ *     This plugin is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  *     GNU General Public License for more details.
