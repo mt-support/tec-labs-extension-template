@@ -5,8 +5,8 @@ Tags: events, calendar
 Requires at least: 4.9
 Tested up to: 4.9
 Stable tag: 1.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPL version 3 or any later version
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Brief description of the extension.
 
