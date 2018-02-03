@@ -22,8 +22,8 @@
 
 // Do not load unless Tribe Common is fully loaded.
 if (
-	! class_exists( 'Tribe__Extension' )
-	|| ! class_exists( 'Tribe__Extension__Example' )
+	class_exists( 'Tribe__Extension' )
+	&& ! class_exists( 'Tribe__Extension__Example' )
 ) {
 	/**
 	 * Extension main class, class begins loading on init() function.
