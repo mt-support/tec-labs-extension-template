@@ -8,6 +8,7 @@
  * Author URI:      http://m.tri.be/1971
  * License:         GPL version 3 or any later version
  * License URI:     https://www.gnu.org/licenses/gpl-3.0.html
+ * Text Domain:     match-the-plugin-directory-name
  *
  *     This plugin is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -20,7 +21,7 @@
  *     GNU General Public License for more details.
  */
 
-// Do not load unless Tribe Common is fully loaded.
+// Do not load unless Tribe Common is fully loaded and our class does not yet exist.
 if (
 	class_exists( 'Tribe__Extension' )
 	&& ! class_exists( 'Tribe__Extension__Example' )
@@ -49,5 +50,5 @@ if (
 		public function init() {
 			// Insert custom code here
 		}
-	} // end Tribe__Extension__Example
-} // end if class_exists
+	} // end class
+} // end if class_exists check
