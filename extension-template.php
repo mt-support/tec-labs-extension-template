@@ -48,7 +48,12 @@ if (
 		 * Extension initialization and hooks.
 		 */
 		public function init() {
+			// Load plugin textdomain
+			// Don't forget to generate the 'languages/match-the-plugin-directory-name.pot' file
+			load_plugin_textdomain( 'match-the-plugin-directory-name', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+			
 			// Insert custom code here
 		}
+		
 	} // end class
 } // end if class_exists check
