@@ -59,6 +59,9 @@ if (
 			 * Delete this paragraph and the non-applicable comments below.
 			 * If just 5.2.4+ (like TEC), delete this entire block of code.
 			 *
+			 * Note that older version syntax errors may still throw fatals even
+			 * if you implement this PHP version checking so QA it at least once.
+			 *
 			 * @link https://secure.php.net/manual/en/migration53.new-features.php
 			 * 5.3: Namespaces, Closures, and Shorthand Ternary Operator
 			 *
@@ -83,15 +86,20 @@ if (
 			$php_required_version = '5.4';
 
 			if ( version_compare( PHP_VERSION, $php_required_version, '<' ) ) {
-				$message = '<p>' . $this->get_name() . ' ';
+				if (
+					is_admin()
+					&& current_user_can( 'activate_plugins' )
+				) {
+					$message = '<p>' . $this->get_name() . ' ';
 
-				$message .= sprintf( __( 'requires PHP version %s or newer to work. Please contact your website host and inquire about updating PHP.', 'match-the-plugin-directory-name' ), $php_required_version );
+					$message .= sprintf( __( 'requires PHP version %s or newer to work. Please contact your website host and inquire about updating PHP.', 'match-the-plugin-directory-name' ), $php_required_version );
 
-				$message .= sprintf( ' <a href="%1$s">%1$s</a>', 'https://wordpress.org/about/requirements/' );
+					$message .= sprintf( ' <a href="%1$s">%1$s</a>', 'https://wordpress.org/about/requirements/' );
 
-				$message .= '</p>';
+					$message .= '</p>';
 
-				tribe_notice( $this->get_name(), $message, 'type=error' );
+					tribe_notice( $this->get_name(), $message, 'type=error' );
+				}
 
 				return;
 			}
