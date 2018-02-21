@@ -83,7 +83,7 @@ if (
 			 * @link https://secure.php.net/manual/en/migration72.new-features.php
 			 * 7.2: `object` Parameter and Covariant Return Typing, Abstract Function Override, and Allow Trailing Comma for Grouped Namespaces
 			 */
-			$php_required_version = '5.4';
+			$php_required_version = '5.2.4';
 
 			if ( version_compare( PHP_VERSION, $php_required_version, '<' ) ) {
 				if (
