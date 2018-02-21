@@ -52,7 +52,51 @@ if (
 			// Don't forget to generate the 'languages/match-the-plugin-directory-name.pot' file
 			load_plugin_textdomain( 'match-the-plugin-directory-name', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 
-			// Insert custom code here
+			/**
+			 * Protect against fatals by specifying the required minimum PHP
+			 * version. Make sure to match the readme.txt header.
+			 *
+			 * Delete this paragraph and the non-applicable comments below.
+			 * If just 5.2.4+ (like TEC), delete this entire block of code.
+			 *
+			 * @link https://secure.php.net/manual/en/migration53.new-features.php
+			 * 5.3: Namespaces, Closures, and Shorthand Ternary Operator
+			 *
+			 * @link https://secure.php.net/manual/en/migration54.new-features.php
+			 * 5.4: Traits, Short Array Syntax, and $this within Closures
+			 *
+			 * @link https://secure.php.net/manual/en/migration55.new-features.php
+			 * 5.5: Finally, Generators, and empty() Supports Arbitrary Expressions
+			 *
+			 * @link https://secure.php.net/manual/en/migration56.new-features.php
+			 * 5.6: Variadic Functions, Argument Unpacking, and Constant Expressions
+			 *
+			 * @link https://secure.php.net/manual/en/migration70.new-features.php
+			 * 7.0: Return Types, Scalar Type Hints, Spaceship Operator, Constant Arrays Using define(), Anonymous Classes, intdiv(), and preg_replace_callback_array()
+			 *
+			 * @link https://secure.php.net/manual/en/migration71.new-features.php
+			 * 7.1: Class Constant Visibility, Nullable Types, Multiple Exceptions per Catch Block, `iterable` Pseudo-Type, and Negative String Offsets
+			 *
+			 * @link https://secure.php.net/manual/en/migration72.new-features.php
+			 * 7.2: `object` Parameter and Covariant Return Typing, Abstract Function Override, and Allow Trailing Comma for Grouped Namespaces
+			 */
+			$php_required_version = '5.4';
+
+			if ( version_compare( PHP_VERSION, $php_required_version, '<' ) ) {
+				$message = '<p>' . $this->get_name() . ' ';
+
+				$message .= sprintf( __( 'requires PHP version %s or newer to work. Please contact your website host and inquire about updating PHP.', 'match-the-plugin-directory-name' ), $php_required_version );
+
+				$message .= sprintf( ' <a href="%1$s">%1$s</a>', 'https://wordpress.org/about/requirements/' );
+
+				$message .= '</p>';
+
+				tribe_notice( $this->get_name(), $message, 'type=error' );
+
+				return;
+			}
+
+			// Insert custom methods here
 		}
 
 	} // end class
