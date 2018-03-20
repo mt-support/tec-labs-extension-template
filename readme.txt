@@ -30,17 +30,14 @@ Install and activate like any other plugin!
 
 = Where can I find more extensions? =
 
-Please visit our [extension library](https://theeventscalendar.com/extensions/) to learn about our complete range of
-extensions for The Events Calendar and its associated plugins.
+Please visit our [extension library](https://theeventscalendar.com/extensions/) to learn about our complete range of extensions for The Events Calendar and its associated plugins.
 
 = What if I experience problems? =
 
-We're always interested in your feedback and our [premium forums](https://theeventscalendar.com/support-forums/) are the
-best place to flag any issues. Do note, however, that the degree of support we provide for extensions like this one
-tends to be very limited.
+We're always interested in your feedback and our [premium forums](https://theeventscalendar.com/support-forums/) are the best place to flag any issues. Do note, however, that the degree of support we provide for extensions like this one tends to be very limited.
 
 == Changelog ==
 
-= 1.0.0 =
+= 1.0.0 YYYY-MM-DD =
 
 * Initial release
