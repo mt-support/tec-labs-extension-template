@@ -90,9 +90,9 @@ if (
 					is_admin()
 					&& current_user_can( 'activate_plugins' )
 				) {
-					$message = '<p>' . $this->get_name() . ' ';
+					$message = '<p>';
 
-					$message .= sprintf( __( 'requires PHP version %s or newer to work. Please contact your website host and inquire about updating PHP.', 'match-the-plugin-directory-name' ), $php_required_version );
+					$message .= sprintf( __( '%s requires PHP version %s or newer to work. Please contact your website host and inquire about updating PHP.', 'match-the-plugin-directory-name' ), $this->get_name(), $php_required_version );
 
 					$message .= sprintf( ' <a href="%1$s">%1$s</a>', 'https://wordpress.org/about/requirements/' );
 
