@@ -59,7 +59,6 @@ if (
 			 * All extensions require PHP 5.3+
 			 *
 			 * Delete this paragraph and the non-applicable comments below.
-			 * If just 5.2.4+ (like TEC), delete this entire block of code.
 			 *
 			 * Note that older version syntax errors may still throw fatals even
 			 * if you implement this PHP version checking so QA it at least once.
