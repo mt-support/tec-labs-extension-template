@@ -56,6 +56,7 @@ if (
 			/**
 			 * Protect against fatals by specifying the required minimum PHP
 			 * version. Make sure to match the readme.txt header.
+			 * All extensions require PHP 5.3+
 			 *
 			 * Delete this paragraph and the non-applicable comments below.
 			 * If just 5.2.4+ (like TEC), delete this entire block of code.
@@ -84,7 +85,7 @@ if (
 			 * @link https://secure.php.net/manual/en/migration72.new-features.php
 			 * 7.2: `object` Parameter and Covariant Return Typing, Abstract Function Override, and Allow Trailing Comma for Grouped Namespaces
 			 */
-			$php_required_version = '5.2.4';
+			$php_required_version = '5.3';
 
 			if ( version_compare( PHP_VERSION, $php_required_version, '<' ) ) {
 				if (
