@@ -105,7 +105,15 @@ if (
 				return;
 			}
 
-			// Insert custom methods here
+			// Insert filters and hooks here
+			add_filter( 'thing_we_are_filtering', array( $this, 'my_custom_function' ) );
+		}
+
+		/**
+		 * Include a docblock for every class method and property.
+		 */
+		public function my_custom_function() {
+			// custom stuff
 		}
 
 	} // end class
