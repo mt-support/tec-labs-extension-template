@@ -1,6 +1,7 @@
 <?php
 /**
  * Plugin Name:       [Base Plugin Name] Extension: [Extension Name]
+ * Plugin URI:        https://theeventscalendar.com/extensions/---the-extension-article-url---/
  * Description:       [Extension Description]
  * Version:           1.0.0
  * Extension Class:   Tribe__Extension__Example
@@ -40,9 +41,7 @@ if (
 		public function construct() {
 			// Requirements and other properties such as the extension homepage can be defined here.
 			// Examples:
-			//
-			//     $this->add_required_plugin( 'Tribe__Events__Main', '4.3' );
-			//     $this->set_url( 'https://theeventscalendar.com/extensions/example/' );
+			// $this->add_required_plugin( 'Tribe__Events__Main', '4.3' );
 		}
 
 		/**
