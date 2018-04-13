@@ -2,10 +2,10 @@
 /**
  * Plugin Name:       [Base Plugin Name] Extension: [Extension Name]
  * Plugin URI:        https://theeventscalendar.com/extensions/---the-extension-article-url---/
+ * GitHub Plugin URI: https://github.com/mt-support/extension-template
  * Description:       [Extension Description]
  * Version:           1.0.0
  * Extension Class:   Tribe__Extension__Example
- * GitHub Plugin URI: https://github.com/mt-support/extension-template
  * Author:            Modern Tribe, Inc.
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
