@@ -6,6 +6,7 @@
  * Description:       [Extension Description]
  * Version:           1.0.0
  * Extension Class:   Tribe__Extension__Example
+ * GitHub Plugin URI: https://github.com/mt-support/extension-template
  * Author:            Modern Tribe, Inc.
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
@@ -50,10 +51,61 @@ if (
 		public function init() {
 			// Load plugin textdomain
 			// Don't forget to generate the 'languages/match-the-plugin-directory-name.pot' file
-			load_plugin_textdomain( 'match-the-plugin-directory-name', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
-			
-			// Insert custom code here
+			load_plugin_textdomain( 'match-the-plugin-directory-name', false, basename( dirname( __FILE__ ) ) . '/languages/' );
+
+			/**
+			 * Protect against fatals by specifying the required minimum PHP
+			 * version. Make sure to match the readme.txt header.
+			 * All extensions require PHP 5.6+, following along with https://theeventscalendar.com/knowledgebase/php-version-requirement-changes/
+			 *
+			 * Delete this paragraph and the non-applicable comments below.
+			 *
+			 * Note that older version syntax errors may still throw fatals even
+			 * if you implement this PHP version checking so QA it at least once.
+			 *
+			 * @link https://secure.php.net/manual/en/migration56.new-features.php
+			 * 5.6: Variadic Functions, Argument Unpacking, and Constant Expressions
+			 *
+			 * @link https://secure.php.net/manual/en/migration70.new-features.php
+			 * 7.0: Return Types, Scalar Type Hints, Spaceship Operator, Constant Arrays Using define(), Anonymous Classes, intdiv(), and preg_replace_callback_array()
+			 *
+			 * @link https://secure.php.net/manual/en/migration71.new-features.php
+			 * 7.1: Class Constant Visibility, Nullable Types, Multiple Exceptions per Catch Block, `iterable` Pseudo-Type, and Negative String Offsets
+			 *
+			 * @link https://secure.php.net/manual/en/migration72.new-features.php
+			 * 7.2: `object` Parameter and Covariant Return Typing, Abstract Function Override, and Allow Trailing Comma for Grouped Namespaces
+			 */
+			$php_required_version = '5.6';
+
+			if ( version_compare( PHP_VERSION, $php_required_version, '<' ) ) {
+				if (
+					is_admin()
+					&& current_user_can( 'activate_plugins' )
+				) {
+					$message = '<p>';
+
+					$message .= sprintf( __( '%s requires PHP version %s or newer to work. Please contact your website host and inquire about updating PHP.', 'match-the-plugin-directory-name' ), $this->get_name(), $php_required_version );
+
+					$message .= sprintf( ' <a href="%1$s">%1$s</a>', 'https://wordpress.org/about/requirements/' );
+
+					$message .= '</p>';
+
+					tribe_notice( $this->get_name(), $message, 'type=error' );
+				}
+
+				return;
+			}
+
+			// Insert filters and hooks here
+			add_filter( 'thing_we_are_filtering', array( $this, 'my_custom_function' ) );
 		}
-		
+
+		/**
+		 * Include a docblock for every class method and property.
+		 */
+		public function my_custom_function() {
+			// custom stuff
+		}
+
 	} // end class
 } // end if class_exists check
