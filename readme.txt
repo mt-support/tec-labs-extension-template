@@ -37,6 +37,6 @@ We're always interested in your feedback and our [premium forums](https://theeve
 
 == Changelog ==
 
-= 1.0.0 YYYY-MM-DD =
+= [1.0.0] YYYY-MM-DD =
 
 * Initial release
