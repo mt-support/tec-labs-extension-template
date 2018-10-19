@@ -2,11 +2,10 @@
 /**
  * Plugin Name:       [Base Plugin Name] Extension: [Extension Name]
  * Plugin URI:        https://theeventscalendar.com/extensions/---the-extension-article-url---/
- * GitHub Plugin URI: https://github.com/mt-support/extension-template
+ * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-extension-template
  * Description:       [Extension Description]
  * Version:           1.0.0
  * Extension Class:   Tribe\Extensions\Example\Tribe__Extension__Example
- * GitHub Plugin URI: https://github.com/mt-support/extension-template
  * Author:            Modern Tribe, Inc.
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
@@ -77,6 +76,9 @@ if (
 
 		/**
 		 * Check required plugins after all Tribe plugins have loaded.
+		 *
+		 * Useful for conditionally-requiring a Tribe plugin, whether to add extra functionality
+		 * or require a certain version but only if it is active.
 		 */
 		public function detect_tec_pro() {
 			if ( Tribe__Dependency::instance()->is_plugin_active( 'Tribe__Events__Pro__Main' ) ) {
@@ -102,6 +104,8 @@ if (
 			if ( is_admin() ) {
 				new Settings();
 			}
+
+			$this->testing_hello_world();
 
 			// Insert filters and hooks here
 			add_filter( 'thing_we_are_filtering', array( $this, 'my_custom_function' ) );
@@ -148,7 +152,7 @@ if (
 
 					$message .= '</p>';
 
-					tribe_notice( $this->get_name(), $message, 'type=error' );
+					tribe_notice( PLUGIN_TEXT_DOMAIN . '-php-version', $message, [ 'type' => 'error' ] );
 				}
 
 				return false;
@@ -178,10 +182,19 @@ if (
 		}
 
 		/**
+		 * Testing Hello World. Delete this for your new extension.
+		 */
+		public function testing_hello_world() {
+			$message = sprintf( 'Hello World from %s. Make sure to remove this in your own new extension.', '<strong>' . $this->get_name() . '</strong>' );
+
+			tribe_notice( PLUGIN_TEXT_DOMAIN . '-hello-world', $message, [ 'type' => 'info' ] );
+		}
+
+		/**
 		 * Include a docblock for every class method and property.
 		 */
 		public function my_custom_function() {
-			// custom stuff
+			// do your custom stuff
 		}
 
 	} // end class
