@@ -105,6 +105,7 @@ if (
 				new Settings();
 			}
 
+			// TODO: Just a test. Remove this.
 			$this->testing_hello_world();
 
 			// Insert filters and hooks here
@@ -182,7 +183,7 @@ if (
 		}
 
 		/**
-		 * Testing Hello World. Delete this for your new extension.
+		 * TODO: Testing Hello World. Delete this for your new extension.
 		 */
 		public function testing_hello_world() {
 			$message = sprintf( 'Hello World from %s. Make sure to remove this in your own new extension.', '<strong>' . $this->get_name() . '</strong>' );
