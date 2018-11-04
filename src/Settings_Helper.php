@@ -4,7 +4,7 @@ namespace Tribe\Extensions\Example;
 
 use Tribe__Main;
 
-if ( ! class_exists( 'Settings_Helper' ) ) {
+if ( ! class_exists( NS . 'Settings_Helper' ) ) {
 
 	/**
 	 * Helper for inserting/removing fields on the WP Admin Tribe Settings pages
