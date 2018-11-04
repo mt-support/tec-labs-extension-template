@@ -13,7 +13,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		 *
 		 * @var Settings_Helper
 		 */
-		protected $settings_helper = '';
+		protected $settings_helper;
 
 		/**
 		 * The prefix for our settings keys.
@@ -22,6 +22,11 @@ if ( ! class_exists( 'Settings' ) ) {
 		 */
 		protected $opts_prefix = 'tribe_ext_example_';
 
+		/**
+		 * Settings constructor.
+		 *
+		 * TODO: Update this entire class for your needs, or remove the entire `src` directory this file is in and do not load it in the main plugin file.
+		 */
 		public function __construct() {
 			$this->settings_helper = new Settings_Helper();
 
@@ -33,7 +38,7 @@ if ( ! class_exists( 'Settings' ) ) {
 		}
 
 		/**
-		 * Removes the settings from Events > Settings > General tab > "Map Settings" section
+		 * Here is an example of removing settings from Events > Settings > General tab > "Map Settings" section
 		 * that are specific to Google Maps.
 		 */
 		public function remove_settings() {
@@ -45,6 +50,11 @@ if ( ! class_exists( 'Settings' ) ) {
 			$this->settings_helper->remove_field( 'embedGoogleMapsZoom', 'general' );
 		}
 
+		/**
+		 * Here is an example of getting some HTML for the Settings Header.
+		 *
+		 * @return string
+		 */
 		private function get_example_intro_text() {
 			$result = '<h3>' . esc_html_x( 'Example Extension Setup', 'Settings header', PLUGIN_TEXT_DOMAIN ) . '</h3>';
 			$result .= '<div style="margin-left: 20px;">';
