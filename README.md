@@ -6,7 +6,7 @@ The primary benefits of using this template is that it's gets you up-and-running
 
 We ensure your new extension does not run if its required base plugin is not activated, which helps avoid fatal errors and means fewer `class_exists()` checks are applicable.
 
-Extensions have been available since The Events Calendar version 4.3.3 (November 16, 2016). Do not try to use this template to work with such an old version of any of our plugins.
+Extensions have been available since The Events Calendar version 4.3.3 (November 16, 2016). If you try to use this template to work with versions before this date, your extension will not run at all.
 
 ## How?
 

@@ -70,7 +70,13 @@ if (
 		public function construct() {
 			// Requirements and other properties such as the extension homepage can be defined here.
 
-			// Examples (all these version numbers are the ones on or after November 16, 2016 -- the lowest you should use):
+			/**
+			 * Examples:
+			 * All these version numbers are the ones on or after November 16, 2016, but you could remove the version
+			 * number, as it's an optional parameter. Know that your extension code will not run at all (we won't even
+			 * get this far) if you are not running The Events Calendar 4.3.3+ or Event Tickets 4.3.3+, as that is where
+			 * the Tribe__Extension class exists, which is what we are extending.
+			 */
 			// $this->add_required_plugin( 'Tribe__Tickets__Main', '4.3.3' );
 			// $this->add_required_plugin( 'Tribe__Tickets_Plus__Main', '4.3.3' );
 			// $this->add_required_plugin( 'Tribe__Events__Main', '4.3.3' );
