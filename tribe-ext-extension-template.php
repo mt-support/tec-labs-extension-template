@@ -69,8 +69,19 @@ if (
 		 */
 		public function construct() {
 			// Requirements and other properties such as the extension homepage can be defined here.
-			// Examples:
-			// $this->add_required_plugin( 'Tribe__Events__Main', '4.3' );
+
+			// Examples (all these version numbers are the ones on or after November 16, 2016 -- the lowest you should use):
+			// $this->add_required_plugin( 'Tribe__Tickets__Main', '4.3.3' );
+			// $this->add_required_plugin( 'Tribe__Tickets_Plus__Main', '4.3.3' );
+			// $this->add_required_plugin( 'Tribe__Events__Main', '4.3.3' );
+			// $this->add_required_plugin( 'Tribe__Events__Pro__Main', '4.3.3' );
+			// $this->add_required_plugin( 'Tribe__Events__Community__Main', '4.3.2' );
+			// $this->add_required_plugin( 'Tribe__Events__Community__Tickets__Main', '4.3.2' );
+			// $this->add_required_plugin( 'Tribe__Events__Filterbar__View', '4.3.3' );
+			// $this->add_required_plugin( 'Tribe__Events__Tickets__Eventbrite__Main', '4.3.2' );
+			// $this->add_required_plugin( 'Tribe_APM', '4.4' );
+
+			// Conditionally-require Events Calendar PRO. If it is active, run an extra bit of code.
 			add_action( 'tribe_plugins_loaded', [ $this, 'detect_tec_pro' ], 0 );
 		}
 
@@ -82,7 +93,7 @@ if (
 		 */
 		public function detect_tec_pro() {
 			if ( Tribe__Dependency::instance()->is_plugin_active( 'Tribe__Events__Pro__Main' ) ) {
-				$this->add_required_plugin( 'Tribe__Events__Pro__Main', '4.3.1' );
+				$this->add_required_plugin( 'Tribe__Events__Pro__Main', '4.3.3' );
 				$this->ecp_active = true;
 			}
 		}
@@ -164,6 +175,8 @@ if (
 
 		/**
 		 * Use Tribe Autoloader for all class files within this namespace in the 'src' directory.
+		 *
+		 * TODO: Delete this method and its usage throughout this file if there is no `src` directory, such as if there are no settings being added to the admin UI.
 		 *
 		 * @return Tribe__Autoloader
 		 */
