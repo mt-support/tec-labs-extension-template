@@ -21,7 +21,6 @@ If you want to suggest an edit to this _template_, submit a pull request to this
 1. Place the remainder of this template's files in your repo's new branch.
 1. Find and replace these strings throughout all file names and file contents:
     1. Extension plugin's slug: `tribe-ext-extension-template`
-    1. Extension plugin's slug (yes, again): `match-the-plugin-directory-name`
     1. `[Base Plugin Name] Extension: [Extension Name]`:
         1. `[Base Plugin Name]` should be something like `The Events Calendar`
         1. `[Extension Name]` should be the name of your extension, such as `Remove Export Links`
