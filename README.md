@@ -28,7 +28,6 @@ If you want to suggest an edit to this _template_, submit a pull request to this
     1. `[Extension Description]` with your extension plugin's short description.
     1. PHP namespace: `Tribe\Extensions\Example`
     1. Extension class (must be unique among all extensions): `Tribe__Extension__Example`
-    1. 
 1. Set `Plugin URI` accordingly.
 1. Set `GitHub Plugin URI` accordingly.
 1. Set `Author:` and `Author URI:` accordingly if not being authored by Modern Tribe.
