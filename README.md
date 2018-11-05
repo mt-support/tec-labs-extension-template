@@ -25,8 +25,7 @@ If you want to suggest an edit to this _template_, submit a pull request to this
         1. `[Base Plugin Name]` should be something like `The Events Calendar`
         1. `[Extension Name]` should be the name of your extension, such as `Remove Export Links`
     1. `[Extension Description]` with your extension plugin's short description.
-    1. PHP namespace: `Tribe\Extensions\Example`
-    1. Extension class (must be unique among all extensions): `Tribe__Extension__Example`
+    1. PHP namespace: `Tribe\Extensions\Example` (must be unique among all extensions)
 1. Set `Plugin URI` accordingly.
 1. Set `GitHub Plugin URI` accordingly.
 1. Set `Author:` and `Author URI:` accordingly if not being authored by Modern Tribe.

@@ -5,7 +5,7 @@
  * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-extension-template
  * Description:       [Extension Description]
  * Version:           1.0.0
- * Extension Class:   Tribe\Extensions\Example\Tribe__Extension__Example
+ * Extension Class:   Tribe\Extensions\Example\Main
  * Author:            Modern Tribe, Inc.
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
@@ -45,12 +45,12 @@ if ( ! defined( NS . 'PLUGIN_TEXT_DOMAIN' ) ) {
 // Do not load unless Tribe Common is fully loaded and our class does not yet exist.
 if (
 	class_exists( 'Tribe__Extension' )
-	&& ! class_exists( NS . 'Tribe__Extension__Example' )
+	&& ! class_exists( NS . 'Main' )
 ) {
 	/**
 	 * Extension main class, class begins loading on init() function.
 	 */
-	class Tribe__Extension__Example extends Tribe__Extension {
+	class Main extends Tribe__Extension {
 
 		/** @var Tribe__Autoloader */
 		private $class_loader;
