@@ -39,7 +39,7 @@ if ( ! defined( __NAMESPACE__ . '\NS' ) ) {
 
 if ( ! defined( NS . 'PLUGIN_TEXT_DOMAIN' ) ) {
 	// `Tribe\Extensions\Example\PLUGIN_TEXT_DOMAIN` is defined
-	define( NS . 'PLUGIN_TEXT_DOMAIN', 'match-the-plugin-directory-name' );
+	define( NS . 'PLUGIN_TEXT_DOMAIN', 'tribe-ext-extension-template' );
 }
 
 // Do not load unless Tribe Common is fully loaded and our class does not yet exist.
