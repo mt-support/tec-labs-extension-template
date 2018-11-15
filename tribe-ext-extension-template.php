@@ -126,7 +126,7 @@ if (
 			$this->testing_hello_world();
 
 			// Insert filters and hooks here
-			add_filter( 'thing_we_are_filtering', array( $this, 'my_custom_function' ) );
+			add_filter( 'thing_we_are_filtering', [ $this, 'my_custom_function' ] );
 		}
 
 		/**
