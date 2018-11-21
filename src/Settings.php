@@ -56,7 +56,10 @@ class Settings {
 	 */
 	public function add_settings() {
 		$fields = [
-			// TODO - Setting heading start. Remove this element if not needed.
+			/** 
+			 * TODO - Setting heading start. Remove this element if not needed.
+			 *        Also remove the corresponding 'get_example_intro_text()' method below.
+			 */
 			$this->opts_prefix . 'Example'   => [
 				'type' => 'html',
 				'html' => $this->get_example_intro_text(),
@@ -80,6 +83,10 @@ class Settings {
 
 	/**
 	 * Here is an example of getting some HTML for the Settings Header.
+	 *
+	 * TODO: Delete this method if you do not need a heading for your settings.
+	 *       Also remove the corresponding element in the the $fields array in
+	 *       the 'add_settings()' method above.
 	 *
 	 * @return string
 	 */
