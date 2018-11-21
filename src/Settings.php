@@ -51,15 +51,17 @@ class Settings {
 
 	/**
 	 * Adds the setting field to Events > Settings > General tab
-	 * The setting will appear above the "End of day cutoff" setting
-	 * (below the "Single event URL slug" setting)
+	 * The setting will appear above the Miscellaneous Settings section
+	 * (below the Map Settings section)
 	 */
 	public function add_settings() {
 		$fields = [
+			// TODO: Settings heading start. Remove this element if not needed. Also remove the corresponding `get_example_intro_text()` method below.
 			$this->opts_prefix . 'Example'   => [
 				'type' => 'html',
 				'html' => $this->get_example_intro_text(),
 			],
+			// TODO: Settings heading end.
 			$this->opts_prefix . 'a_setting' => [ // TODO
 				'type'            => 'text',
 				'label'           => esc_html__( 'xxx try this', PLUGIN_TEXT_DOMAIN ),
@@ -78,6 +80,8 @@ class Settings {
 
 	/**
 	 * Here is an example of getting some HTML for the Settings Header.
+	 *
+	 * TODO: Delete this method if you do not need a heading for your settings. Also remove the corresponding element in the the $fields array in the `add_settings()` method above.
 	 *
 	 * @return string
 	 */
