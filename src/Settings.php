@@ -153,7 +153,7 @@ class Settings {
 			$this->opts_prefix . 'a_setting' => [ // TODO
 				'type'            => 'text',
 				'label'           => esc_html__( 'xxx try this', PLUGIN_TEXT_DOMAIN ),
-				'tooltip'         => sprintf( esc_html__( 'Enter your custom URL, including "http://" or "https://", for example %s.', PLUGIN_TEXT_DOMAIN ), '<code>https://mydomain.com/events/</code>' ),
+				'tooltip'         => sprintf( esc_html__( 'Enter your custom URL, including "http://" or "https://", for example %s.', PLUGIN_TEXT_DOMAIN ), '<code>https://wpshindig.com/events/</code>' ),
 				'validation_type' => 'html',
 			]
 		];
