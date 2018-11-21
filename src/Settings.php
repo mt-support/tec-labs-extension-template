@@ -56,10 +56,12 @@ class Settings {
 	 */
 	public function add_settings() {
 		$fields = [
+			// TODO - Setting heading start. Remove this element if not needed.
 			$this->opts_prefix . 'Example'   => [
 				'type' => 'html',
 				'html' => $this->get_example_intro_text(),
 			],
+			// TODO - Setting heading end.
 			$this->opts_prefix . 'a_setting' => [ // TODO
 				'type'            => 'text',
 				'label'           => esc_html__( 'xxx try this', PLUGIN_TEXT_DOMAIN ),
