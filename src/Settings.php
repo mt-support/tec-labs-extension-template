@@ -2,6 +2,8 @@
 
 namespace Tribe\Extensions\Example;
 
+use Tribe__Settings_Manager;
+
 /**
  * Do the Settings.
  */
@@ -17,23 +19,110 @@ class Settings {
 	/**
 	 * The prefix for our settings keys.
 	 *
+	 * Gets set automatically from the Text Domain or can be set manually.
+	 *
 	 * @var string
 	 */
-	protected $opts_prefix = 'tribe_ext_example_';
+	private $opts_prefix = '';
 
 	/**
 	 * Settings constructor.
 	 *
 	 * TODO: Update this entire class for your needs, or remove the entire `src` directory this file is in and do not load it in the main plugin file.
 	 */
-	public function __construct() {
+	public function __construct( $opts_prefix = '' ) {
 		$this->settings_helper = new Settings_Helper();
+
+		$this->set_options_prefix( $opts_prefix );
 
 		// Remove settings specific to Google Maps
 		add_action( 'admin_init', [ $this, 'remove_settings' ] );
 
 		// Add settings specific to OSM
 		add_action( 'admin_init', [ $this, 'add_settings' ] );
+	}
+
+	/**
+	 * Set the options prefix to be used for this extension's settings.
+	 *
+	 * Prefixes with `tribe_ext_` and ends with `_`.
+	 *
+	 * @param string $opts_prefix
+	 */
+	private function set_options_prefix( $opts_prefix = '' ) {
+		if ( empty( $opts_prefix ) ) {
+			$opts_prefix = str_replace( '-', '_', PLUGIN_TEXT_DOMAIN );
+		}
+
+		$prefix = 'tribe_ext_';
+
+		if ( 0 === strpos( $opts_prefix, $prefix ) ) {
+			$prefix = '';
+		}
+
+		$this->opts_prefix = $prefix . $opts_prefix . '_';
+	}
+
+	/**
+	 * Given an option key, get this extension's option value.
+	 *
+	 * This automatically prepends this extension's option prefix so you can just do `$this->get_option( 'a_setting' )`.
+	 *
+	 * @see tribe_get_option()
+	 *
+	 * @param string $key
+	 *
+	 * @return mixed
+	 */
+	public function get_option( $key = '', $default = '' ) {
+		$key = $this->sanitize_option_key( $key );
+
+		return tribe_get_option( $key, $default );
+	}
+
+	/**
+	 * Get an option key after ensuring it is appropriately prefixed.
+	 *
+	 * @param string $key
+	 *
+	 * @return string
+	 */
+	private function sanitize_option_key( $key = '' ) {
+		$prefix = $this->get_options_prefix();
+
+		if ( 0 === strpos( $prefix, $key ) ) {
+			$prefix = '';
+		}
+
+		return $prefix . $key;
+	}
+
+	/**
+	 * Get this extension's options prefix.
+	 *
+	 * @return string
+	 */
+	public function get_options_prefix() {
+		return $this->opts_prefix;
+	}
+
+	/**
+	 * Given an option key, delete this extension's option value.
+	 *
+	 * This automatically prepends this extension's option prefix so you can just do `$this->delete_option( 'a_setting' )`.
+	 *
+	 * @param string $key
+	 *
+	 * @return mixed
+	 */
+	public function delete_option( $key = '' ) {
+		$key = $this->sanitize_option_key( $key );
+
+		$options = Tribe__Settings_Manager::get_options();
+
+		unset( $options[$key] );
+
+		return Tribe__Settings_Manager::set_options( $options );
 	}
 
 	/**
@@ -50,9 +139,8 @@ class Settings {
 	}
 
 	/**
-	 * Adds the setting field to Events > Settings > General tab
-	 * The setting will appear above the Miscellaneous Settings section
-	 * (below the Map Settings section)
+	 * Adds a new section of fields to Events > Settings > General tab, appearing after the "Map Settings" section and
+	 * before the "Miscellaneous Settings" section.
 	 */
 	public function add_settings() {
 		$fields = [
