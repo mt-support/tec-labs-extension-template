@@ -51,8 +51,8 @@ class Settings {
 
 	/**
 	 * Adds the setting field to Events > Settings > General tab
-	 * The setting will appear above the "End of day cutoff" setting
-	 * (below the "Single event URL slug" setting)
+	 * The setting will appear above the Miscellaneous Settings section
+	 * (below the Map Settings section)
 	 */
 	public function add_settings() {
 		$fields = [
