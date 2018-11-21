@@ -207,7 +207,7 @@ if (
 		public function testing_hello_world() {
 			$message = sprintf( '<p>Hello World from %s. Make sure to remove this in your own new extension.</p>', '<strong>' . $this->get_name() . '</strong>' );
 
-			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom field values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_our_custom_field() );
+			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_our_custom_option() );
 
 			tribe_notice( PLUGIN_TEXT_DOMAIN . '-hello-world', $message, [ 'type' => 'info' ] );
 		}
@@ -219,10 +219,10 @@ if (
 		 *
 		 * @return mixed
 		 */
-		public function get_our_custom_field() {
+		public function get_our_custom_option() {
 			$settings = new Settings();
 
-			$value = $settings->get_option('a_setting', 'https://theeventscalendar.com/' );
+			$value = $settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
 
 			return $value;
 		}
