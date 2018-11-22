@@ -90,7 +90,7 @@ class Settings {
 	private function sanitize_option_key( $key = '' ) {
 		$prefix = $this->get_options_prefix();
 
-		if ( 0 === strpos( $prefix, $key ) ) {
+		if ( 0 === strpos( $key, $prefix ) ) {
 			$prefix = '';
 		}
 
