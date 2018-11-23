@@ -205,9 +205,26 @@ if (
 		 * TODO: Testing Hello World. Delete this for your new extension.
 		 */
 		public function testing_hello_world() {
-			$message = sprintf( 'Hello World from %s. Make sure to remove this in your own new extension.', '<strong>' . $this->get_name() . '</strong>' );
+			$message = sprintf( '<p>Hello World from %s. Make sure to remove this in your own new extension.</p>', '<strong>' . $this->get_name() . '</strong>' );
+
+			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_our_custom_option() );
 
 			tribe_notice( PLUGIN_TEXT_DOMAIN . '-hello-world', $message, [ 'type' => 'info' ] );
+		}
+
+		/**
+		 * Demonstration of getting this extension's `a_setting` custom field.
+		 *
+		 * TODO: Rework or remove this.
+		 *
+		 * @return mixed
+		 */
+		public function get_our_custom_option() {
+			$settings = new Settings();
+
+			$value = $settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
+
+			return $value;
 		}
 
 		/**
