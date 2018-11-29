@@ -20,6 +20,7 @@ class Settings {
 	 * The prefix for our settings keys.
 	 *
 	 * Gets set automatically from the Text Domain or can be set manually.
+	 * The prefix should not end with underscore `_`.
 	 *
 	 * @var string
 	 */
@@ -54,7 +55,7 @@ class Settings {
 			$opts_prefix = str_replace( '-', '_', PLUGIN_TEXT_DOMAIN );
 		}
 
-		$prefix = 'tribe_ext_';
+		$prefix = 'tribe_ext';
 
 		if ( 0 === strpos( $opts_prefix, $prefix ) ) {
 			$prefix = '';
