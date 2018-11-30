@@ -145,7 +145,7 @@ if (
 
 			$this->class_loader();
 
-			$this->settings = new Settings( $this->opts_prefix );
+			$this->get_settings();
 
 			// TODO: Just a test. Remove this.
 			$this->testing_hello_world();
