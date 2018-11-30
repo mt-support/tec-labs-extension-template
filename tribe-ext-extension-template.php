@@ -124,7 +124,7 @@ if (
 		 * @return Settings
 		 */
 		private function get_settings() {
-			if ( empty( $this->settings)) {
+			if ( empty( $this->settings ) ) {
 				$this->settings = new Settings( $this->opts_prefix );
 			}
 

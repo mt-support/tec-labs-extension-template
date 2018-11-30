@@ -79,47 +79,6 @@ class Settings {
 	}
 
 	/**
-	 * Get an array of all of this extension's raw options (i.e. the ones starting with its prefix).
-	 *
-	 * @return array
-	 */
-	public function get_all_raw_options() {
-		$tribe_options = Tribe__Settings_Manager::get_options();
-
-		if ( ! is_array( $tribe_options)) {
-			return [];
-		}
-
-		$result = [];
-
-		foreach( $tribe_options as $key => $value ) {
-			if ( 0 === strpos( $key, $this->get_options_prefix() ) ) {
-				$result[$key] = $value;
-			}
-		}
-
-		return $result;
-	}
-
-	/**
-	 * Get an array of all of this extension's options without array keys having the redundant prefix.
-	 *
-	 * @return array
-	 */
-	public function get_all_options() {
-		$raw_options = $this->get_all_raw_options();
-
-		$result = [];
-
-		foreach( $raw_options as $key => $value ) {
-			$abbr_key = str_replace( $this->get_options_prefix(), '', $key );
-			$result[$abbr_key] = $value;
-		}
-
-		return $result;
-	}
-
-	/**
 	 * Get an option key after ensuring it is appropriately prefixed.
 	 *
 	 * @param string $key
@@ -142,11 +101,52 @@ class Settings {
 	 * @return string
 	 */
 	public function get_options_prefix() {
-		if( empty( $this->opts_prefix ) ) {
+		if ( empty( $this->opts_prefix ) ) {
 			$this->set_options_prefix();
 		}
 
 		return $this->opts_prefix;
+	}
+
+	/**
+	 * Get an array of all of this extension's options without array keys having the redundant prefix.
+	 *
+	 * @return array
+	 */
+	public function get_all_options() {
+		$raw_options = $this->get_all_raw_options();
+
+		$result = [];
+
+		foreach ( $raw_options as $key => $value ) {
+			$abbr_key          = str_replace( $this->get_options_prefix(), '', $key );
+			$result[$abbr_key] = $value;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Get an array of all of this extension's raw options (i.e. the ones starting with its prefix).
+	 *
+	 * @return array
+	 */
+	public function get_all_raw_options() {
+		$tribe_options = Tribe__Settings_Manager::get_options();
+
+		if ( ! is_array( $tribe_options ) ) {
+			return [];
+		}
+
+		$result = [];
+
+		foreach ( $tribe_options as $key => $value ) {
+			if ( 0 === strpos( $key, $this->get_options_prefix() ) ) {
+				$result[$key] = $value;
+			}
+		}
+
+		return $result;
 	}
 
 	/**
