@@ -58,9 +58,16 @@ if (
 		private $class_loader;
 
 		/**
-		 * @var \Tribe\Extensions\Example\Settings
+		 * @var Settings
 		 */
 		private $settings;
+
+		/**
+		 * Custom options prefix (without trailing underscore).
+		 *
+		 * Should leave blank unless you want to set it to something custom, such as if migrated from old extension.
+		 */
+		private $opts_prefix = '';
 
 		/**
 		 * Is Events Calendar PRO active. If yes, we will add some extra functionality.
@@ -111,9 +118,14 @@ if (
 			}
 		}
 
-		private function get_settings( $prefix = '' ) {
+		/**
+		 * Get Settings instance.
+		 *
+		 * @return Settings
+		 */
+		private function get_settings() {
 			if ( empty( $this->settings)) {
-				$this->settings = new Settings( $prefix );
+				$this->settings = new Settings( $this->opts_prefix );
 			}
 
 			return $this->settings;
@@ -133,7 +145,7 @@ if (
 
 			$this->class_loader();
 
-			$this->settings = new Settings();
+			$this->settings = new Settings( $this->opts_prefix );
 
 			// TODO: Just a test. Remove this.
 			$this->testing_hello_world();
@@ -233,7 +245,20 @@ if (
 		 * @return mixed
 		 */
 		public function get_one_custom_option() {
-			return $this->settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
+			$settings = $this->get_settings();
+
+			return $settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
+		}
+
+		/**
+		 * Get all of this extension's options.
+		 *
+		 * @return array
+		 */
+		public function get_all_options() {
+			$settings = $this->get_settings();
+
+			return $settings->get_all_options();
 		}
 
 		/**

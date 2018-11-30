@@ -46,7 +46,8 @@ class Settings {
 	/**
 	 * Set the options prefix to be used for this extension's settings.
 	 *
-	 * Prefixes with `tribe_ext_` and ends with `_`.
+	 * Defaults to the text domain, converting hyphens to underscores.
+	 * Always has ends with a single underscore.
 	 *
 	 * @param string $opts_prefix
 	 */
@@ -55,13 +56,9 @@ class Settings {
 			$opts_prefix = str_replace( '-', '_', PLUGIN_TEXT_DOMAIN );
 		}
 
-		$prefix = 'tribe_ext';
+		$opts_prefix = $opts_prefix . '_';
 
-		if ( 0 === strpos( $opts_prefix, $prefix ) ) {
-			$prefix = '';
-		}
-
-		$this->opts_prefix = $prefix . $opts_prefix . '_';
+		$this->opts_prefix = str_replace( '__', '_', $opts_prefix );
 	}
 
 	/**
