@@ -52,8 +52,15 @@ if (
 	 */
 	class Main extends Tribe__Extension {
 
-		/** @var Tribe__Autoloader */
+		/**
+		 * @var Tribe__Autoloader
+		 */
 		private $class_loader;
+
+		/**
+		 * @var \Tribe\Extensions\Example\Settings
+		 */
+		private $settings;
 
 		/**
 		 * Is Events Calendar PRO active. If yes, we will add some extra functionality.
@@ -104,6 +111,14 @@ if (
 			}
 		}
 
+		private function get_settings( $prefix = '' ) {
+			if ( empty( $this->settings)) {
+				$this->settings = new Settings( $prefix );
+			}
+
+			return $this->settings;
+		}
+
 		/**
 		 * Extension initialization and hooks.
 		 */
@@ -118,9 +133,7 @@ if (
 
 			$this->class_loader();
 
-			if ( is_admin() ) {
-				new Settings();
-			}
+			$this->settings = new Settings();
 
 			// TODO: Just a test. Remove this.
 			$this->testing_hello_world();
@@ -207,24 +220,20 @@ if (
 		public function testing_hello_world() {
 			$message = sprintf( '<p>Hello World from %s. Make sure to remove this in your own new extension.</p>', '<strong>' . $this->get_name() . '</strong>' );
 
-			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_our_custom_option() );
+			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_one_custom_option() );
 
 			tribe_notice( PLUGIN_TEXT_DOMAIN . '-hello-world', $message, [ 'type' => 'info' ] );
 		}
 
 		/**
-		 * Demonstration of getting this extension's `a_setting` custom field.
+		 * Demonstration of getting this extension's `a_setting` option value.
 		 *
 		 * TODO: Rework or remove this.
 		 *
 		 * @return mixed
 		 */
-		public function get_our_custom_option() {
-			$settings = new Settings();
-
-			$value = $settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
-
-			return $value;
+		public function get_one_custom_option() {
+			return $this->settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
 		}
 
 		/**
