@@ -118,8 +118,10 @@ class Settings {
 
 		$result = [];
 
+		$prefix = $this->get_options_prefix();
+
 		foreach ( $raw_options as $key => $value ) {
-			$abbr_key          = str_replace( $this->get_options_prefix(), '', $key );
+			$abbr_key          = str_replace( $prefix, '', $key );
 			$result[$abbr_key] = $value;
 		}
 
