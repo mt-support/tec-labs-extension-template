@@ -46,7 +46,8 @@ class Settings {
 	/**
 	 * Set the options prefix to be used for this extension's settings.
 	 *
-	 * Prefixes with `tribe_ext_` and ends with `_`.
+	 * Defaults to the text domain, converting hyphens to underscores.
+	 * Always has ends with a single underscore.
 	 *
 	 * @param string $opts_prefix
 	 */
@@ -55,13 +56,9 @@ class Settings {
 			$opts_prefix = str_replace( '-', '_', PLUGIN_TEXT_DOMAIN );
 		}
 
-		$prefix = 'tribe_ext';
+		$opts_prefix = $opts_prefix . '_';
 
-		if ( 0 === strpos( $opts_prefix, $prefix ) ) {
-			$prefix = '';
-		}
-
-		$this->opts_prefix = $prefix . $opts_prefix . '_';
+		$this->opts_prefix = str_replace( '__', '_', $opts_prefix );
 	}
 
 	/**
@@ -104,7 +101,54 @@ class Settings {
 	 * @return string
 	 */
 	public function get_options_prefix() {
+		if ( empty( $this->opts_prefix ) ) {
+			$this->set_options_prefix();
+		}
+
 		return $this->opts_prefix;
+	}
+
+	/**
+	 * Get an array of all of this extension's options without array keys having the redundant prefix.
+	 *
+	 * @return array
+	 */
+	public function get_all_options() {
+		$raw_options = $this->get_all_raw_options();
+
+		$result = [];
+
+		$prefix = $this->get_options_prefix();
+
+		foreach ( $raw_options as $key => $value ) {
+			$abbr_key          = str_replace( $prefix, '', $key );
+			$result[$abbr_key] = $value;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Get an array of all of this extension's raw options (i.e. the ones starting with its prefix).
+	 *
+	 * @return array
+	 */
+	public function get_all_raw_options() {
+		$tribe_options = Tribe__Settings_Manager::get_options();
+
+		if ( ! is_array( $tribe_options ) ) {
+			return [];
+		}
+
+		$result = [];
+
+		foreach ( $tribe_options as $key => $value ) {
+			if ( 0 === strpos( $key, $this->get_options_prefix() ) ) {
+				$result[$key] = $value;
+			}
+		}
+
+		return $result;
 	}
 
 	/**

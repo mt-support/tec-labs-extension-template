@@ -52,8 +52,22 @@ if (
 	 */
 	class Main extends Tribe__Extension {
 
-		/** @var Tribe__Autoloader */
+		/**
+		 * @var Tribe__Autoloader
+		 */
 		private $class_loader;
+
+		/**
+		 * @var Settings
+		 */
+		private $settings;
+
+		/**
+		 * Custom options prefix (without trailing underscore).
+		 *
+		 * Should leave blank unless you want to set it to something custom, such as if migrated from old extension.
+		 */
+		private $opts_prefix = '';
 
 		/**
 		 * Is Events Calendar PRO active. If yes, we will add some extra functionality.
@@ -105,6 +119,19 @@ if (
 		}
 
 		/**
+		 * Get Settings instance.
+		 *
+		 * @return Settings
+		 */
+		private function get_settings() {
+			if ( empty( $this->settings ) ) {
+				$this->settings = new Settings( $this->opts_prefix );
+			}
+
+			return $this->settings;
+		}
+
+		/**
 		 * Extension initialization and hooks.
 		 */
 		public function init() {
@@ -118,9 +145,7 @@ if (
 
 			$this->class_loader();
 
-			if ( is_admin() ) {
-				new Settings();
-			}
+			$this->get_settings();
 
 			// TODO: Just a test. Remove this.
 			$this->testing_hello_world();
@@ -207,24 +232,33 @@ if (
 		public function testing_hello_world() {
 			$message = sprintf( '<p>Hello World from %s. Make sure to remove this in your own new extension.</p>', '<strong>' . $this->get_name() . '</strong>' );
 
-			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_our_custom_option() );
+			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_one_custom_option() );
 
 			tribe_notice( PLUGIN_TEXT_DOMAIN . '-hello-world', $message, [ 'type' => 'info' ] );
 		}
 
 		/**
-		 * Demonstration of getting this extension's `a_setting` custom field.
+		 * Demonstration of getting this extension's `a_setting` option value.
 		 *
 		 * TODO: Rework or remove this.
 		 *
 		 * @return mixed
 		 */
-		public function get_our_custom_option() {
-			$settings = new Settings();
+		public function get_one_custom_option() {
+			$settings = $this->get_settings();
 
-			$value = $settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
+			return $settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
+		}
 
-			return $value;
+		/**
+		 * Get all of this extension's options.
+		 *
+		 * @return array
+		 */
+		public function get_all_options() {
+			$settings = $this->get_settings();
+
+			return $settings->get_all_options();
 		}
 
 		/**
