@@ -5,7 +5,7 @@
  * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-extension-template
  * Description:       [Extension Description]
  * Version:           1.0.0
- * Extension Class:   Tribe\Extensions\Example\Main
+ * Extension Class:   tribe\extensions\example\Main
  * Author:            Modern Tribe, Inc.
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
@@ -23,7 +23,7 @@
  *     GNU General Public License for more details.
  */
 
-namespace Tribe\Extensions\Example;
+namespace tribe\extensions\example;
 
 use Tribe__Autoloader;
 use Tribe__Dependency;
@@ -38,7 +38,7 @@ if ( ! defined( __NAMESPACE__ . '\NS' ) ) {
 }
 
 if ( ! defined( NS . 'PLUGIN_TEXT_DOMAIN' ) ) {
-	// `Tribe\Extensions\Example\PLUGIN_TEXT_DOMAIN` is defined
+	// `tribe\extensions\example\PLUGIN_TEXT_DOMAIN` is defined
 	define( NS . 'PLUGIN_TEXT_DOMAIN', 'tribe-ext-extension-template' );
 }
 

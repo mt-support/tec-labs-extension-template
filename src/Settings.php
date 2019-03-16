@@ -1,6 +1,6 @@
 <?php
 
-namespace Tribe\Extensions\Example;
+namespace tribe\extensions\example;
 
 use Tribe__Settings_Manager;
 
