@@ -155,7 +155,7 @@ if (
 			// TODO: Just a test. Remove this.
 			$this->testing_hello_world();
 
-			// Insert filters and hooks here
+			// Insert filter and action hooks here
 			add_filter( 'thing_we_are_filtering', [ $this, 'my_custom_function' ] );
 		}
 
