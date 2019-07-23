@@ -82,7 +82,7 @@ if (
 		 * This always executes even if the required plugins are not present.
 		 */
 		public function construct() {
-			// Requirements and other properties such as the extension homepage can be defined here.
+			// Dependency requirements and class properties can be defined here.
 
 			/**
 			 * Examples:
