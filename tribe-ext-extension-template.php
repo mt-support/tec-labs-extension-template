@@ -82,7 +82,7 @@ if (
 		 * This always executes even if the required plugins are not present.
 		 */
 		public function construct() {
-			// Requirements and other properties such as the extension homepage can be defined here.
+			// Dependency requirements and class properties can be defined here.
 
 			/**
 			 * Examples:
@@ -90,10 +90,12 @@ if (
 			 * number, as it's an optional parameter. Know that your extension code will not run at all (we won't even
 			 * get this far) if you are not running The Events Calendar 4.3.3+ or Event Tickets 4.3.3+, as that is where
 			 * the Tribe__Extension class exists, which is what we are extending.
+			 *
+			 * If using `tribe()`, such as with `Tribe__Dependency`, require TEC/ET version 4.4+ (January 9, 2017).
 			 */
-			// $this->add_required_plugin( 'Tribe__Tickets__Main', '4.3.3' );
+			// $this->add_required_plugin( 'Tribe__Tickets__Main', '4.4' );
 			// $this->add_required_plugin( 'Tribe__Tickets_Plus__Main', '4.3.3' );
-			// $this->add_required_plugin( 'Tribe__Events__Main', '4.3.3' );
+			// $this->add_required_plugin( 'Tribe__Events__Main', '4.4' );
 			// $this->add_required_plugin( 'Tribe__Events__Pro__Main', '4.3.3' );
 			// $this->add_required_plugin( 'Tribe__Events__Community__Main', '4.3.2' );
 			// $this->add_required_plugin( 'Tribe__Events__Community__Tickets__Main', '4.3.2' );
@@ -112,8 +114,11 @@ if (
 		 * or require a certain version but only if it is active.
 		 */
 		public function detect_tec_pro() {
-			if ( Tribe__Dependency::instance()->is_plugin_active( 'Tribe__Events__Pro__Main' ) ) {
-				$this->add_required_plugin( 'Tribe__Events__Pro__Main', '4.3.3' );
+			/** @var Tribe__Dependency $dep */
+			$dep = tribe( Tribe__Dependency::class );
+
+			if ( $dep->is_plugin_active( 'Tribe__Events__Pro__Main' ) ) {
+				$this->add_required_plugin( 'Tribe__Events__Pro__Main' );
 				$this->ecp_active = true;
 			}
 		}
@@ -150,7 +155,7 @@ if (
 			// TODO: Just a test. Remove this.
 			$this->testing_hello_world();
 
-			// Insert filters and hooks here
+			// Insert filter and action hooks here
 			add_filter( 'thing_we_are_filtering', [ $this, 'my_custom_function' ] );
 		}
 
