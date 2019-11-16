@@ -26,6 +26,7 @@ If you want to suggest an edit to this _template_, submit a pull request to this
         1. `[Extension Name]` should be the name of your extension, such as `Remove Export Links`
     1. `[Extension Description]` with your extension plugin's short description.
     1. PHP namespace: `Tribe\Extensions\Example` (must be unique among all extensions)
+        1. If you are using the `Setting_Helper` class, remember to set the namespace in `src/Settings.php` and `src/Settings_Helper.php` as well.
 1. Set `Plugin URI` accordingly.
 1. Set `GitHub Plugin URI` accordingly.
 1. Set `Author:` and `Author URI:` accordingly if not being authored by Modern Tribe.
