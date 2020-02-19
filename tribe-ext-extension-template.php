@@ -45,7 +45,7 @@ if ( ! defined( NS . 'PLUGIN_TEXT_DOMAIN' ) ) {
 // Do not load unless Tribe Common is fully loaded and our class does not yet exist.
 if (
 	class_exists( 'Tribe__Extension' )
-	&& ! class_exists( NS . 'Main' )
+	&& ! class_exists( Main::class )
 ) {
 	/**
 	 * Extension main class, class begins loading on init() function.
