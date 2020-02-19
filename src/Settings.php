@@ -4,7 +4,7 @@ namespace Tribe\Extensions\Example;
 
 use Tribe__Settings_Manager;
 
-if ( class_exists( Settings::class ) ) {
+if ( ! class_exists( Settings::class ) ) {
 	/**
 	 * Do the Settings.
 	 */
