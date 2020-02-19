@@ -31,6 +31,8 @@ if ( class_exists( Settings::class ) ) {
 		 * Settings constructor.
 		 *
 		 * TODO: Update this entire class for your needs, or remove the entire `src` directory this file is in and do not load it in the main plugin file.
+		 *
+		 * @param string $opts_prefix
 		 */
 		public function __construct( $opts_prefix = '' ) {
 			$this->settings_helper = new Settings_Helper();
