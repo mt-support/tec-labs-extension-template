@@ -20,24 +20,21 @@ if ( ! class_exists( Settings::class ) ) {
 		/**
 		 * The prefix for our settings keys.
 		 *
-		 * Gets set automatically from the Text Domain or can be set manually.
-		 * The prefix should not end with underscore `_`.
-		 *
 		 * @var string
 		 */
-		private $opts_prefix = '';
+		private $options_prefix = '';
 
 		/**
 		 * Settings constructor.
 		 *
 		 * TODO: Update this entire class for your needs, or remove the entire `src` directory this file is in and do not load it in the main plugin file.
 		 *
-		 * @param string $opts_prefix
+		 * @param string $options_prefix Recommended: the plugin text domain, with hyphens converted to underscores.
 		 */
-		public function __construct( $opts_prefix = '' ) {
+		public function __construct( $options_prefix ) {
 			$this->settings_helper = new Settings_Helper();
 
-			$this->set_options_prefix( $opts_prefix );
+			$this->set_options_prefix( $options_prefix );
 
 			// Remove settings specific to Google Maps
 			add_action( 'admin_init', [ $this, 'remove_settings' ] );
@@ -73,19 +70,28 @@ if ( ! class_exists( Settings::class ) ) {
 		/**
 		 * Set the options prefix to be used for this extension's settings.
 		 *
-		 * Defaults to the text domain, converting hyphens to underscores.
-		 * Always has ends with a single underscore.
+		 * Recommended: the plugin text domain, with hyphens converted to underscores.
+		 * Is forced to end with a single underscore. All double-underscores are converted to single.
 		 *
-		 * @param string $opts_prefix
+		 * @see get_options_prefix()
+		 *
+		 * @param string $options_prefix
 		 */
-		private function set_options_prefix( $opts_prefix = '' ) {
-			if ( empty( $opts_prefix ) ) {
-				$opts_prefix = str_replace( '-', '_', PLUGIN_TEXT_DOMAIN );
-			}
+		private function set_options_prefix( $options_prefix ) {
+			$options_prefix = $options_prefix . '_';
 
-			$opts_prefix = $opts_prefix . '_';
+			$this->options_prefix = str_replace( '__', '_', $options_prefix );
+		}
 
-			$this->opts_prefix = str_replace( '__', '_', $opts_prefix );
+		/**
+		 * Get this extension's options prefix.
+		 *
+		 * @see set_options_prefix()
+		 *
+		 * @return string
+		 */
+		public function get_options_prefix() {
+			return $this->options_prefix;
 		}
 
 		/**
@@ -120,19 +126,6 @@ if ( ! class_exists( Settings::class ) ) {
 			}
 
 			return $prefix . $key;
-		}
-
-		/**
-		 * Get this extension's options prefix.
-		 *
-		 * @return string
-		 */
-		public function get_options_prefix() {
-			if ( empty( $this->opts_prefix ) ) {
-				$this->set_options_prefix();
-			}
-
-			return $this->opts_prefix;
 		}
 
 		/**
@@ -217,12 +210,12 @@ if ( ! class_exists( Settings::class ) ) {
 		public function add_settings() {
 			$fields = [
 				// TODO: Settings heading start. Remove this element if not needed. Also remove the corresponding `get_example_intro_text()` method below.
-				$this->opts_prefix . 'Example'   => [
+				$this->options_prefix . 'Example'   => [
 					'type' => 'html',
 					'html' => $this->get_example_intro_text(),
 				],
 				// TODO: Settings heading end.
-				$this->opts_prefix . 'a_setting' => [ // TODO
+				$this->options_prefix . 'a_setting' => [ // TODO
 					'type'            => 'text',
 					'label'           => esc_html__( 'xxx try this', PLUGIN_TEXT_DOMAIN ),
 					'tooltip'         => sprintf( esc_html__( 'Enter your custom URL, including "http://" or "https://", for example %s.', PLUGIN_TEXT_DOMAIN ), '<code>https://wpshindig.com/events/</code>' ),

@@ -63,13 +63,6 @@ if (
 		private $settings;
 
 		/**
-		 * Custom options prefix (without trailing underscore).
-		 *
-		 * Should leave blank unless you want to set it to something custom, such as if migrated from old extension.
-		 */
-		private $opts_prefix = '';
-
-		/**
 		 * Is Events Calendar PRO active. If yes, we will add some extra functionality.
 		 *
 		 * @return bool
@@ -124,13 +117,26 @@ if (
 		}
 
 		/**
+		 * Get this plugin's options prefix.
+		 *
+		 * Settings_Helper will append a trailing underscore before each option.
+		 *
+		 * @see \Tribe\Extensions\Example\Settings::set_options_prefix()
+		 *
+		 * @return string
+		 */
+		private function get_options_prefix() {
+			return (string) str_replace( '-', '_', PLUGIN_TEXT_DOMAIN );
+		}
+
+		/**
 		 * Get Settings instance.
 		 *
 		 * @return Settings
 		 */
 		private function get_settings() {
 			if ( empty( $this->settings ) ) {
-				$this->settings = new Settings( $this->opts_prefix );
+				$this->settings = new Settings( $this->get_options_prefix() );
 			}
 
 			return $this->settings;
