@@ -227,8 +227,23 @@ if ( ! class_exists( Settings::class ) ) {
 				],
 			];
 
-			// Add the options prefix to each of the array keys.
-			$fields = array_combine(
+			$this->settings_helper->add_fields(
+				$this->prefix_settings_field_keys( $fields ),
+				'general',
+				'tribeEventsMiscellaneousTitle',
+				true
+			);
+		}
+
+		/**
+		 * Add the options prefix to each of the array keys.
+		 *
+		 * @param array $fields
+		 *
+		 * @return array
+		 */
+		private function prefix_settings_field_keys( array $fields ) {
+			$prefixed_fields = array_combine(
 				array_map(
 					function ( $key ) {
 						return $this->get_options_prefix() . $key;
@@ -237,12 +252,7 @@ if ( ! class_exists( Settings::class ) ) {
 				$fields
 			);
 
-			$this->settings_helper->add_fields(
-				$fields,
-				'general',
-				'tribeEventsMiscellaneousTitle',
-				true
-			);
+			return (array) $prefixed_fields;
 		}
 
 		/**
