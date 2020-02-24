@@ -20,6 +20,8 @@ if ( ! class_exists( Settings::class ) ) {
 		/**
 		 * The prefix for our settings keys.
 		 *
+		 * @see get_options_prefix() Use this method to get this property's value.
+		 *
 		 * @var string
 		 */
 		private $options_prefix = '';
@@ -204,24 +206,36 @@ if ( ! class_exists( Settings::class ) ) {
 		}
 
 		/**
-		 * Adds a new section of fields to Events > Settings > General tab, appearing after the "Map Settings" section and
-		 * before the "Miscellaneous Settings" section.
+		 * Adds a new section of fields to Events > Settings > General tab, appearing after the "Map Settings" section
+		 * and before the "Miscellaneous Settings" section.
+		 *
+		 * TODO: Move it to where you want and update this docblock. If you like it here, just delete this TODO.
 		 */
 		public function add_settings() {
 			$fields = [
 				// TODO: Settings heading start. Remove this element if not needed. Also remove the corresponding `get_example_intro_text()` method below.
-				$this->options_prefix . 'Example'   => [
+				'Example'   => [
 					'type' => 'html',
 					'html' => $this->get_example_intro_text(),
 				],
 				// TODO: Settings heading end.
-				$this->options_prefix . 'a_setting' => [ // TODO
+				'a_setting' => [ // TODO
 					'type'            => 'text',
 					'label'           => esc_html__( 'xxx try this', PLUGIN_TEXT_DOMAIN ),
 					'tooltip'         => sprintf( esc_html__( 'Enter your custom URL, including "http://" or "https://", for example %s.', PLUGIN_TEXT_DOMAIN ), '<code>https://wpshindig.com/events/</code>' ),
 					'validation_type' => 'html',
 				],
 			];
+
+			// Add the options prefix to each of the array keys.
+			$fields = array_combine(
+				array_map(
+					function ( $key ) {
+						return $this->get_options_prefix() . $key;
+					}, array_keys( $fields )
+				),
+				$fields
+			);
 
 			$this->settings_helper->add_fields(
 				$fields,
@@ -242,7 +256,7 @@ if ( ! class_exists( Settings::class ) ) {
 			$result = '<h3>' . esc_html_x( 'Example Extension Setup', 'Settings header', PLUGIN_TEXT_DOMAIN ) . '</h3>';
 			$result .= '<div style="margin-left: 20px;">';
 			$result .= '<p>';
-			$result .= esc_html_x( 'Some settings text here', 'Settings', PLUGIN_TEXT_DOMAIN );
+			$result .= esc_html_x( 'Some text here about this settings section.', 'Settings', PLUGIN_TEXT_DOMAIN );
 			$result .= '</p>';
 			$result .= '</div>';
 

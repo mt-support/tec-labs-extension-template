@@ -121,6 +121,8 @@ if (
 		 *
 		 * Settings_Helper will append a trailing underscore before each option.
 		 *
+		 * TODO: Remove if not using Settings.
+		 *
 		 * @see \Tribe\Extensions\Example\Settings::set_options_prefix()
 		 *
 		 * @return string
