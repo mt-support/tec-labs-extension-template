@@ -47,6 +47,30 @@ if ( ! class_exists( Settings::class ) ) {
 		}
 
 		/**
+		 * Allow access to set the Settings Helper property.
+		 *
+		 * @see get_settings_helper()
+		 *
+		 * @param Settings_Helper $helper
+		 *
+		 * @return Settings_Helper
+		 */
+		public function set_settings_helper( Settings_Helper $helper ) {
+			$this->settings_helper = $helper;
+
+			return $this->get_settings_helper();
+		}
+
+		/**
+		 * Allow access to get the Settings Helper property.
+		 *
+		 * @see set_settings_helper()
+		 */
+		public function get_settings_helper() {
+			return $this->settings_helper;
+		}
+
+		/**
 		 * Set the options prefix to be used for this extension's settings.
 		 *
 		 * Defaults to the text domain, converting hyphens to underscores.
@@ -203,7 +227,7 @@ if ( ! class_exists( Settings::class ) ) {
 					'label'           => esc_html__( 'xxx try this', PLUGIN_TEXT_DOMAIN ),
 					'tooltip'         => sprintf( esc_html__( 'Enter your custom URL, including "http://" or "https://", for example %s.', PLUGIN_TEXT_DOMAIN ), '<code>https://wpshindig.com/events/</code>' ),
 					'validation_type' => 'html',
-				]
+				],
 			];
 
 			$this->settings_helper->add_fields(
