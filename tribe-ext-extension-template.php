@@ -29,14 +29,6 @@ use Tribe__Autoloader;
 use Tribe__Dependency;
 use Tribe__Extension;
 
-/**
- * Define Constants
- */
-
-if ( ! defined( __NAMESPACE__ . '\NS' ) ) {
-	define( __NAMESPACE__ . '\NS', __NAMESPACE__ . '\\' );
-}
-
 // Do not load unless Tribe Common is fully loaded and our class does not yet exist.
 if (
 	class_exists( 'Tribe__Extension' )
@@ -224,7 +216,7 @@ if (
 				$this->class_loader = new Tribe__Autoloader;
 				$this->class_loader->set_dir_separator( '\\' );
 				$this->class_loader->register_prefix(
-					NS,
+					__NAMESPACE__ . '\\',
 					__DIR__ . DIRECTORY_SEPARATOR . 'src'
 				);
 			}
