@@ -29,19 +29,6 @@ use Tribe__Autoloader;
 use Tribe__Dependency;
 use Tribe__Extension;
 
-/**
- * Define Constants
- */
-
-if ( ! defined( __NAMESPACE__ . '\NS' ) ) {
-	define( __NAMESPACE__ . '\NS', __NAMESPACE__ . '\\' );
-}
-
-if ( ! defined( NS . 'PLUGIN_TEXT_DOMAIN' ) ) {
-	// `Tribe\Extensions\Example\PLUGIN_TEXT_DOMAIN` is defined
-	define( NS . 'PLUGIN_TEXT_DOMAIN', 'tribe-ext-extension-template' );
-}
-
 // Do not load unless Tribe Common is fully loaded and our class does not yet exist.
 if (
 	class_exists( 'Tribe__Extension' )
@@ -128,7 +115,7 @@ if (
 		 * @return string
 		 */
 		private function get_options_prefix() {
-			return (string) str_replace( '-', '_', PLUGIN_TEXT_DOMAIN );
+			return (string) str_replace( '-', '_', 'tribe-ext-extension-template' );
 		}
 
 		/**
@@ -150,7 +137,7 @@ if (
 		public function init() {
 			// Load plugin textdomain
 			// Don't forget to generate the 'languages/tribe-ext-extension-template.pot' file
-			load_plugin_textdomain( PLUGIN_TEXT_DOMAIN, false, basename( dirname( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain( 'tribe-ext-extension-template', false, basename( dirname( __FILE__ ) ) . '/languages/' );
 
 			if ( ! $this->php_version_check() ) {
 				return;
@@ -202,13 +189,13 @@ if (
 				) {
 					$message = '<p>';
 
-					$message .= sprintf( __( '%s requires PHP version %s or newer to work. Please contact your website host and inquire about updating PHP.', PLUGIN_TEXT_DOMAIN ), $this->get_name(), $php_required_version );
+					$message .= sprintf( __( '%s requires PHP version %s or newer to work. Please contact your website host and inquire about updating PHP.', 'tribe-ext-extension-template' ), $this->get_name(), $php_required_version );
 
 					$message .= sprintf( ' <a href="%1$s">%1$s</a>', 'https://wordpress.org/about/requirements/' );
 
 					$message .= '</p>';
 
-					tribe_notice( PLUGIN_TEXT_DOMAIN . '-php-version', $message, [ 'type' => 'error' ] );
+					tribe_notice( 'tribe-ext-extension-template' . '-php-version', $message, [ 'type' => 'error' ] );
 				}
 
 				return false;
@@ -229,7 +216,7 @@ if (
 				$this->class_loader = new Tribe__Autoloader;
 				$this->class_loader->set_dir_separator( '\\' );
 				$this->class_loader->register_prefix(
-					NS,
+					__NAMESPACE__ . '\\',
 					__DIR__ . DIRECTORY_SEPARATOR . 'src'
 				);
 			}
@@ -247,7 +234,7 @@ if (
 
 			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_one_custom_option() );
 
-			tribe_notice( PLUGIN_TEXT_DOMAIN . '-hello-world', $message, [ 'type' => 'info' ] );
+			tribe_notice( 'tribe-ext-extension-template' . '-hello-world', $message, [ 'type' => 'info' ] );
 		}
 
 		/**
