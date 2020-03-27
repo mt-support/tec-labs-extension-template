@@ -253,7 +253,7 @@ if (
 						$view_breaks_version,
 					);
 					$message .= '</p>';
-					echo "yyy";
+
 					tribe_notice( PLUGIN_TEXT_DOMAIN . '-views-version', $message, [ 'type' => 'warning' ] );
 				}
 
