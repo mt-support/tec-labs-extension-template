@@ -241,8 +241,11 @@ if (
 				? true
 				: false;
 
-			if ( function_exists( 'tribe_events_views_v2_is_enabled' ) ) {
-				if ( is_admin() && current_user_can( 'activate_plugins' ) && $show_warning ) {
+			if ( ! function_exists( 'tribe_events_views_v2_is_enabled' ) ) {
+				return true;
+			}
+			
+			if ( is_admin() && current_user_can( 'activate_plugins' ) && $show_warning ) {
 					$message = '<p>';
 					$message .= sprintf(
 						__(
@@ -256,9 +259,7 @@ if (
 
 					tribe_notice( PLUGIN_TEXT_DOMAIN . '-views-version', $message, [ 'type' => 'warning' ] );
 				}
-
-				return false;
-			}
+			return false;
 
 			return true;
 		}
