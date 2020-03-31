@@ -236,7 +236,7 @@ if (
 
 			$show_warning = (
 				$view_required_version === 'V1 legacy' && tribe_events_views_v2_is_enabled()
-				|| $view_required_version == 'V2 updated' && ! tribe_events_views_v2_is_enabled()
+				|| $view_required_version === 'V2 updated' && ! tribe_events_views_v2_is_enabled()
 			)
 				? true
 				: false;
