@@ -230,7 +230,7 @@ if (
 		 * @todo Remove method if extension works with both V1 and V2 views
 		 */
 		private function v2_views_check() {
-			$view_required_version = $this->view_needed;
+			$view_required_version = $this->$required_view;
 
 			$view_breaks_version = $view_required_version == 'V1 legacy' ? 'V2 updated' : 'V1 legacy';
 
