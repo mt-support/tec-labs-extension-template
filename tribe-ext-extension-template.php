@@ -68,7 +68,7 @@ if (
 		 *
 		 * @todo Remove this and corresponding method v2_views_check() if extension works with both V1 and V2 views.
 		 */
-		public $view_needed = "V1 legacy";
+		public $required_view = "V1 legacy";
 
 		/**
 		 * Setup the Extension's properties.
