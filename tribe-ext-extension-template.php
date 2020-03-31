@@ -257,7 +257,7 @@ if (
 					);
 					$message .= '</p>';
 
-					tribe_notice( PLUGIN_TEXT_DOMAIN . '-views-version', $message, [ 'type' => 'warning' ] );
+					tribe_notice( 'tribe-ext-extension-template' . '-views-version', $message, [ 'type' => 'warning' ] );
 				}
 			return false;
 
