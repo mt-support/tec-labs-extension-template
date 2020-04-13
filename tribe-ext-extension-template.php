@@ -59,16 +59,16 @@ if (
 		private $settings;
 
 		/**
-		 * Set up if it only works with a specific view
+		 * Set up if it works only with a specific view
 		 * Possible values
-		 * 'V1 legacy'
-		 * 'V2 updated'
+		 * 'V1' - corresponds to V1 legacy views
+		 * 'V2' - corresponds to V2 updated views
 		 *
 		 * @return string
 		 *
 		 * @todo Remove this and corresponding method v2_views_check() if extension works with both V1 and V2 views.
 		 */
-		public $required_view = "V1 legacy";
+		public $required_view = "V1";
 
 		/**
 		 * Setup the Extension's properties.
@@ -232,7 +232,16 @@ if (
 		private function v2_views_check() {
 			$view_required_version = $this->$required_view;
 
-			$view_breaks_version = $view_required_version == 'V1 legacy' ? 'V2 updated' : 'V1 legacy';
+			$view_breaks_version = '';
+
+			if ( $view_required_version == 'V1' ) {
+				$view_required_version = 'V1 legacy';
+				$view_breaks_version   = 'V2 updated';
+			}
+			elseif ( $view_required_version == 'V2' ) {
+				$view_required_version = 'V2 updated';
+				$view_breaks_version   = 'V1 legacy';
+			}
 
 			$show_warning = false;
 			if (
