@@ -234,12 +234,21 @@ if (
 
 			$view_breaks_version = $view_required_version == 'V1 legacy' ? 'V2 updated' : 'V1 legacy';
 
-			$show_warning = (
-				$view_required_version === 'V1 legacy' && tribe_events_views_v2_is_enabled()
-				|| $view_required_version === 'V2 updated' && ! tribe_events_views_v2_is_enabled()
+			$show_warning = false;
+			if (
+				(
+					$view_required_version === 'V1 legacy'
+					&& tribe_events_views_v2_is_enabled()
+				)
+				||
+				(
+					$view_required_version === 'V2 updated'
+					&& ! tribe_events_views_v2_is_enabled()
+				)
 			)
-				? true
-				: false;
+			{
+				$show_warning = true;
+			}
 
 			if ( ! function_exists( 'tribe_events_views_v2_is_enabled' ) ) {
 				return true;
