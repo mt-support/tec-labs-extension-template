@@ -235,12 +235,12 @@ if (
 			$view_breaks_version = '';
 
 			if ( $view_required_version == 'V1' ) {
-				$view_required_version = 'V1 legacy';
-				$view_breaks_version   = 'V2 updated';
+				$view_required_version = esc_html__( 'V1 legacy', 'tribe-ext-extension-template' );
+				$view_breaks_version   = esc_html__( 'V2 updated', 'tribe-ext-extension-template' );
 			}
 			elseif ( $view_required_version == 'V2' ) {
-				$view_required_version = 'V2 updated';
-				$view_breaks_version   = 'V1 legacy';
+				$view_required_version = esc_html__( 'V2 updated', 'tribe-ext-extension-template' );
+				$view_breaks_version   = esc_html__( 'V1 legacy', 'tribe-ext-extension-template' );
 			}
 			else {
 				tribe_notice( 'tribe-ext-extension-template-code-error', 'The views requirement is not set up properly in <code>public $required_view</code>. The attribute value can only be <code>V1</code> or <code>V2</code>.', [ 'type' => 'error' ] );
