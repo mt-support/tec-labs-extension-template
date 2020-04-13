@@ -254,7 +254,10 @@ if (
 				return true;
 			}
 			
-			if ( is_admin() && current_user_can( 'activate_plugins' ) && $show_warning ) {
+			if ( is_admin()
+			     && current_user_can( 'activate_plugins' )
+			     && $show_warning )
+			{
 					$message = '<p>';
 					$message .= sprintf(
 						__(
@@ -269,8 +272,7 @@ if (
 					tribe_notice( 'tribe-ext-extension-template' . '-views-version', $message, [ 'type' => 'warning' ] );
 				}
 			return false;
-
-			return true;
+			
 		}
 
 		/**
