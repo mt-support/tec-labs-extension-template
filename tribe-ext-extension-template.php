@@ -242,6 +242,9 @@ if (
 				$view_required_version = 'V2 updated';
 				$view_breaks_version   = 'V1 legacy';
 			}
+			else {
+				tribe_notice( 'tribe-ext-extension-template-code-error', 'The views requirement is not set up properly in <code>public $required_view</code>. The attribute value can only be <code>V1</code> or <code>V2</code>.', [ 'type' => 'error' ] );
+			}
 
 			$show_warning = false;
 			if (
