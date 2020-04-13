@@ -261,7 +261,7 @@ if (
 					$message = '<p>';
 					$message .= sprintf(
 						__(
-							'%s requires %s views to work. It will not work with %s views.', PLUGIN_TEXT_DOMAIN
+							'%s requires %s views to work. It will not work with %s views.', 'tribe-ext-extension-template'
 						),
 						$this->get_name(),
 						$view_required_version,
@@ -269,10 +269,10 @@ if (
 					);
 					$message .= '</p>';
 
-					tribe_notice( 'tribe-ext-extension-template' . '-views-version', $message, [ 'type' => 'warning' ] );
+					tribe_notice( 'tribe-ext-extension-template-views-version', $message, [ 'type' => 'warning' ] );
 				}
 			return false;
-			
+
 		}
 
 		/**
@@ -305,7 +305,7 @@ if (
 
 			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_one_custom_option() );
 
-			tribe_notice( 'tribe-ext-extension-template' . '-hello-world', $message, [ 'type' => 'info' ] );
+			tribe_notice( 'tribe-ext-extension-template-hello-world', $message, [ 'type' => 'info' ] );
 		}
 
 		/**
