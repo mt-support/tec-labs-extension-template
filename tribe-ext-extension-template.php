@@ -57,18 +57,6 @@ if (
 		public $ecp_active = false;
 
 		/**
-		 * Set up if it works only with a specific view
-		 * Possible values
-		 * 'V1' - corresponds to V1 legacy views
-		 * 'V2' - corresponds to V2 updated views
-		 *
-		 * @return string
-		 *
-		 * @todo Remove this and corresponding method v2_views_check() if extension works with both V1 and V2 views.
-		 */
-		public $required_view = "V1";
-
-		/**
 		 * Setup the Extension's properties.
 		 *
 		 * This always executes even if the required plugins are not present.
@@ -155,7 +143,7 @@ if (
 				return;
 			}
 
-			if ( ! $this->v2_views_check() ) {
+			if ( ! $this->is_using_compatible_view_version() ) {
 				return;
 			}
 
@@ -211,7 +199,7 @@ if (
 
 					$message .= '</p>';
 
-					tribe_notice( 'tribe-ext-extension-template' . '-php-version', $message, [ 'type' => 'error' ] );
+					tribe_notice( 'tribe-ext-extension-template-php-version', $message, [ 'type' => 'error' ] );
 				}
 
 				return false;
@@ -221,68 +209,80 @@ if (
 		}
 
 		/**
-		 * Check if we have the needed view. Admin notice if we don't and user should see it.
+		 * Check if we have the required TEC view. Admin notice if we don't and user should see it.
+		 *
+		 * @TODO Remove method if extension doesn't require The Events Calendar or works with both V1 and V2 views.
 		 *
 		 * @return bool
-		 *
-		 * @todo Remove method if extension works with both V1 and V2 views
 		 */
-		private function v2_views_check() {
-			$view_required_version = $this->$required_view;
+		private function is_using_compatible_view_version() {
+			// @TODO: Set the required views version, then remove this comment.
+			$view_required_version = 1;
 
-			$view_breaks_version = '';
+			$meets_req = true;
 
-			if ( $view_required_version == 'V1' ) {
-				$view_required_version = esc_html__( 'V1 legacy', 'tribe-ext-extension-template' );
-				$view_breaks_version   = esc_html__( 'V2 updated', 'tribe-ext-extension-template' );
-			}
-			elseif ( $view_required_version == 'V2' ) {
-				$view_required_version = esc_html__( 'V2 updated', 'tribe-ext-extension-template' );
-				$view_breaks_version   = esc_html__( 'V1 legacy', 'tribe-ext-extension-template' );
-			}
-			else {
-				tribe_notice( 'tribe-ext-extension-template-code-error', 'The views requirement is not set up properly in <code>public $required_view</code>. The attribute value can only be <code>V1</code> or <code>V2</code>.', [ 'type' => 'error' ] );
-			}
-
-			$show_warning = false;
+			// Is V2 enabled?
 			if (
-				(
-					$view_required_version === 'V1 legacy'
-					&& tribe_events_views_v2_is_enabled()
-				)
-				||
-				(
-					$view_required_version === 'V2 updated'
-					&& ! tribe_events_views_v2_is_enabled()
-				)
-			)
-			{
-				$show_warning = true;
+				function_exists( 'tribe_events_views_v2_is_enabled' )
+				&& ! empty( tribe_events_views_v2_is_enabled() )
+			) {
+				$is_v2 = true;
+			} else {
+				$is_v2 = false;
 			}
 
-			if ( ! function_exists( 'tribe_events_views_v2_is_enabled' ) ) {
-				return true;
+			// V1 compatibility check.
+			if (
+				1 === $view_required_version
+				&& $is_v2
+			) {
+				$meets_req = false;
 			}
-			
-			if ( is_admin()
-			     && current_user_can( 'activate_plugins' )
-			     && $show_warning )
-			{
-					$message = '<p>';
-					$message .= sprintf(
-						__(
-							'%s requires %s views to work. It will not work with %s views.', 'tribe-ext-extension-template'
-						),
-						$this->get_name(),
-						$view_required_version,
-						$view_breaks_version,
-					);
-					$message .= '</p>';
 
-					tribe_notice( 'tribe-ext-extension-template-views-version', $message, [ 'type' => 'warning' ] );
+			// V2 compatibility check.
+			if (
+				2 === $view_required_version
+				&& ! $is_v2
+			) {
+				$meets_req = false;
+			}
+
+			// Notice, if should be shown.
+			if (
+				! $meets_req
+				&& is_admin()
+				&& current_user_can( 'activate_plugins' )
+			) {
+				if ( 1 === $view_required_version ) {
+					$view_name = _x( 'Legacy Views', 'name of view', 'tribe-ext-extension-template' );
+				} else {
+					$view_name = _x( 'New (V2) Views', 'name of view', 'tribe-ext-extension-template' );
 				}
-			return false;
 
+				$view_name = sprintf(
+					'<a href="%s">%s</a>',
+					esc_url( admin_url( 'edit.php?page=tribe-common&tab=display&post_type=tribe_events' ) ),
+					$view_name
+				);
+
+				// Translators: 1: Extension plugin name, 2: Name of required view, linked to Display tab.
+				$message = sprintf(
+					__(
+						'%1$s requires the "%2$s" so this extension\'s code will not run until this requirement is met. You may want to deactivate this extension or visit its homepage to see if there are any updates available.',
+						'tribe-ext-extension-template'
+					),
+					$this->get_name(),
+					$view_name
+				);
+
+				tribe_notice(
+					'tribe-ext-extension-template-view-mismatch',
+					'<p>' . $message . '</p>',
+					[ 'type' => 'error' ]
+				);
+			}
+
+			return $meets_req;
 		}
 
 		/**
