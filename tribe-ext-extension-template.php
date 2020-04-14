@@ -56,8 +56,6 @@ if (
 		 */
 		public $ecp_active = false;
 
-		private $settings;
-
 		/**
 		 * Set up if it works only with a specific view
 		 * Possible values
