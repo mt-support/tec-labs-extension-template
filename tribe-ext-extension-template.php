@@ -143,6 +143,10 @@ if (
 				return;
 			}
 
+			if ( ! $this->is_using_compatible_view_version() ) {
+				return;
+			}
+
 			$this->class_loader();
 
 			$this->get_settings();
@@ -195,13 +199,90 @@ if (
 
 					$message .= '</p>';
 
-					tribe_notice( 'tribe-ext-extension-template' . '-php-version', $message, [ 'type' => 'error' ] );
+					tribe_notice( 'tribe-ext-extension-template-php-version', $message, [ 'type' => 'error' ] );
 				}
 
 				return false;
 			}
 
 			return true;
+		}
+
+		/**
+		 * Check if we have the required TEC view. Admin notice if we don't and user should see it.
+		 *
+		 * @TODO Remove method if extension doesn't require The Events Calendar or works with both V1 and V2 views.
+		 *
+		 * @return bool
+		 */
+		private function is_using_compatible_view_version() {
+			// @TODO: Set the required views version, then remove this comment.
+			$view_required_version = 1;
+
+			$meets_req = true;
+
+			// Is V2 enabled?
+			if (
+				function_exists( 'tribe_events_views_v2_is_enabled' )
+				&& ! empty( tribe_events_views_v2_is_enabled() )
+			) {
+				$is_v2 = true;
+			} else {
+				$is_v2 = false;
+			}
+
+			// V1 compatibility check.
+			if (
+				1 === $view_required_version
+				&& $is_v2
+			) {
+				$meets_req = false;
+			}
+
+			// V2 compatibility check.
+			if (
+				2 === $view_required_version
+				&& ! $is_v2
+			) {
+				$meets_req = false;
+			}
+
+			// Notice, if should be shown.
+			if (
+				! $meets_req
+				&& is_admin()
+				&& current_user_can( 'activate_plugins' )
+			) {
+				if ( 1 === $view_required_version ) {
+					$view_name = _x( 'Legacy Views', 'name of view', 'tribe-ext-extension-template' );
+				} else {
+					$view_name = _x( 'New (V2) Views', 'name of view', 'tribe-ext-extension-template' );
+				}
+
+				$view_name = sprintf(
+					'<a href="%s">%s</a>',
+					esc_url( admin_url( 'edit.php?page=tribe-common&tab=display&post_type=tribe_events' ) ),
+					$view_name
+				);
+
+				// Translators: 1: Extension plugin name, 2: Name of required view, linked to Display tab.
+				$message = sprintf(
+					__(
+						'%1$s requires the "%2$s" so this extension\'s code will not run until this requirement is met. You may want to deactivate this extension or visit its homepage to see if there are any updates available.',
+						'tribe-ext-extension-template'
+					),
+					$this->get_name(),
+					$view_name
+				);
+
+				tribe_notice(
+					'tribe-ext-extension-template-view-mismatch',
+					'<p>' . $message . '</p>',
+					[ 'type' => 'error' ]
+				);
+			}
+
+			return $meets_req;
 		}
 
 		/**
@@ -234,7 +315,7 @@ if (
 
 			$message .= sprintf( '<p><strong>Bonus!</strong> Get one of our own custom option values: %s</p><p><em>See the code to learn more.</em></p>', $this->get_one_custom_option() );
 
-			tribe_notice( 'tribe-ext-extension-template' . '-hello-world', $message, [ 'type' => 'info' ] );
+			tribe_notice( 'tribe-ext-extension-template-hello-world', $message, [ 'type' => 'info' ] );
 		}
 
 		/**
