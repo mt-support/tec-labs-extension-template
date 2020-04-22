@@ -40,6 +40,7 @@ If you want to suggest an edit to this _template_, submit a pull request to this
 1. Remove all unused/unnecessary code and comments, as this template may handle edge cases that do not apply to your extension.
 1. Sanitize all input and escape all output, as appropriate.
 1. Double-check your plugin's slug, name, and descriptions still apply to the end result of what your code actually accomplishes.
+1. Generate your *.pot* file by running this WP-CLI command: `wp i18n make-pot . languages/tribe-ext-extension-template.pot --headers='{"Report-Msgid-Bugs-To":"Modern Tribe, Inc. <https://support.theeventscalendar.com/>"}'`
 1. Set the `== Changelog ==` section of `readme.txt`.
 1. Delete this `README.md` file.
 1. Zip and release your plugin!
