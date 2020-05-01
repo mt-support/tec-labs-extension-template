@@ -79,10 +79,14 @@ if ( ! class_exists( Settings::class ) ) {
 		 *
 		 * @param string $options_prefix
 		 */
-		private function set_options_prefix( $options_prefix ) {
-			$options_prefix = $options_prefix . '_';
+		private function set_options_prefix( $options_prefix = '' ) {
+			if ( empty( $opts_prefix ) ) {
+				$opts_prefix = str_replace( '-', '_', 'tribe-ext-extension-template' ); // The text domain.
+			}
 
-			$this->options_prefix = str_replace( '__', '_', $options_prefix );
+			$opts_prefix = $opts_prefix . '_';
+
+			$this->options_prefix = str_replace( '__', '_', $opts_prefix );
 		}
 
 		/**
