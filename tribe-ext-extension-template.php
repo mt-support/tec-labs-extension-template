@@ -321,25 +321,23 @@ if (
 		/**
 		 * Demonstration of getting this extension's `a_setting` option value.
 		 *
-		 * TODO: Rework or remove this.
+		 * @TODO: Not needed. Just FYI how-to.
 		 *
 		 * @return mixed
 		 */
 		public function get_one_custom_option() {
-			$settings = $this->get_settings();
-
-			return $settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
+			return $this->settings->get_option( 'a_setting', 'https://theeventscalendar.com/' );
 		}
 
 		/**
 		 * Get all of this extension's options.
 		 *
+		 * @TODO: Not needed. Just FYI how-to.
+		 *
 		 * @return array
 		 */
 		public function get_all_options() {
-			$settings = $this->get_settings();
-
-			return $settings->get_all_options();
+			return $this->settings->get_all_options();
 		}
 
 		/**
