@@ -32,7 +32,7 @@ class PUE extends \tad_DI52_ServiceProvider {
 	/**
 	 * Plugin update URL.
 	 *
-	 * @since TBD
+	 * @since __TRIBE_VERSION__
 	 *
 	 * @var string
 	 */

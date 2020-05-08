@@ -16,7 +16,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '__TRIBE_VERSION__';
 
 	/**
 	 * Stores the base slug for the plugin.
@@ -62,7 +62,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * This always executes even if the required plugins are not present.
 	 *
-	 * @since 1.0.0
+	 * @since __TRIBE_VERSION__
 	 */
 	public function register() {
 		// Set up the plugin provider properties.
