@@ -49,6 +49,17 @@ function tribe_extension___TRIBE_SLUG_CLEAN__() {
 		'__TRIBE_SLUG__'
 	);
 
+	// Deactivates the plugin in case of the main class didn't autoload.
+	if ( ! class_exists( '\Tribe\Extensions\__TRIBE_NAMESPACE__\Plugin' ) ) {
+		tribe_transient_notice(
+			'__TRIBE_SLUG__',
+			'<p>' . esc_html__( 'Couldn\'t properly load "__TRIBE_BASE__ Extension: __TRIBE_NAME__" the extension was deactivated.', '__TRIBE_SLUG__' ) . '</p>'
+		);
+
+		deactivate_plugins( __FILE__, true );
+		return;
+	}
+
 	tribe_register_provider( '\Tribe\Extensions\__TRIBE_NAMESPACE__\Plugin' );
 }
 
