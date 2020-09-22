@@ -101,11 +101,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	protected function check_plugin_dependencies() {
 		$this->register_plugin_dependencies();
 
-		if ( ! tribe_check_plugin( static::class ) ) {
-			return false;
-		}
-
-		return true;
+		return tribe_check_plugin( static::class );
 	}
 
 	/**
