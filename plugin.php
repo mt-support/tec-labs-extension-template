@@ -9,7 +9,7 @@
  * Author URI:        http://m.tri.be/1971
  * License:           GPL version 3 or any later version
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:       __TRIBE_SLUG__
+ * Text Domain:       __TRIBE_DOMAIN__
  *
  *     This plugin is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
@@ -53,8 +53,12 @@ function tribe_extension___TRIBE_SLUG_CLEAN__() {
 	if ( ! class_exists( '\Tribe\Extensions\__TRIBE_NAMESPACE__\Plugin' ) ) {
 		tribe_transient_notice(
 			'__TRIBE_SLUG__',
-			'<p>' . esc_html__( 'Couldn\'t properly load "__TRIBE_BASE__ Extension: __TRIBE_NAME__" the extension was deactivated.', '__TRIBE_SLUG__' ) . '</p>'
+			'<p>' . esc_html__( 'Couldn\'t properly load "__TRIBE_BASE__ Extension: __TRIBE_NAME__" the extension was deactivated.', '__TRIBE_DOMAIN__' ) . '</p>'
 		);
+
+		if ( ! function_exists( 'deactivate_plugins' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
 
 		deactivate_plugins( __FILE__, true );
 		return;

@@ -5,13 +5,13 @@
  * To remove a filter:
  * ```php
  *  remove_filter( 'some_filter', [ tribe( Tribe\Extensions\__TRIBE_NAMESPACE__\Hooks::class ), 'some_filtering_method' ] );
- *  remove_filter( 'some_filter', [ tribe( 'events-virtual.hooks' ), 'some_filtering_method' ] );
+ *  remove_filter( 'some_filter', [ tribe( 'extension.__TRIBE_SLUG_CLEAN__.hooks' ), 'some_filtering_method' ] );
  * ```
  *
  * To remove an action:
  * ```php
  *  remove_action( 'some_action', [ tribe( Tribe\Extensions\__TRIBE_NAMESPACE__\Hooks::class ), 'some_method' ] );
- *  remove_action( 'some_action', [ tribe( 'events-virtual.hooks' ), 'some_method' ] );
+ *  remove_action( 'some_action', [ tribe( 'extension.__TRIBE_SLUG_CLEAN__.hooks' ), 'some_method' ] );
  * ```
  *
  * @since   __TRIBE_VERSION__
@@ -20,6 +20,8 @@
  */
 
 namespace Tribe\Extensions\__TRIBE_NAMESPACE__;
+
+use Tribe__Main as Common;
 
 /**
  * Class Hooks.
@@ -68,9 +70,9 @@ class Hooks extends \tad_DI52_ServiceProvider {
 	 */
 	public function load_text_domains() {
 		$mopath = tribe( Plugin::class )->plugin_dir . 'lang/';
-		$domain = '__TRIBE_SLUG__';
+		$domain = '__TRIBE_DOMAIN__';
 
 		// This will load `wp-content/languages/plugins` files first.
-		\Tribe__Main::instance()->load_text_domain( $domain, $mopath );
+		Common::instance()->load_text_domain( $domain, $mopath );
 	}
 }

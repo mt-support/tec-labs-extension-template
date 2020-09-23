@@ -10,7 +10,7 @@
  *
  * @since __TRIBE_VERSION__
  *
- * @package Tribe\Events\Virtual
+ * @package Tribe\Extensions\__TRIBE_NAMESPACE__
  */
 namespace Tribe\Extensions\__TRIBE_NAMESPACE__;
 

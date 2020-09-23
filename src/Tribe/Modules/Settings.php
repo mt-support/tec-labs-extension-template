@@ -224,8 +224,8 @@ class Settings {
 			// TODO: Settings heading end.
 			'a_setting' => [ // TODO
 				'type'            => 'text',
-				'label'           => esc_html__( 'xxx try this', 'tribe-ext-extension-template' ),
-				'tooltip'         => sprintf( esc_html__( 'Enter your custom URL, including "http://" or "https://", for example %s.', 'tribe-ext-extension-template' ), '<code>https://wpshindig.com/events/</code>' ),
+				'label'           => esc_html__( 'xxx try this', '__TRIBE_DOMAIN__' ),
+				'tooltip'         => sprintf( esc_html__( 'Enter your custom URL, including "http://" or "https://", for example %s.', '__TRIBE_DOMAIN__' ), '<code>https://wpshindig.com/events/</code>' ),
 				'validation_type' => 'html',
 			],
 		];
@@ -266,10 +266,10 @@ class Settings {
 	 * @return string
 	 */
 	private function get_example_intro_text() {
-		$result = '<h3>' . esc_html_x( 'Example Extension Setup', 'Settings header', 'tribe-ext-extension-template' ) . '</h3>';
+		$result = '<h3>' . esc_html_x( 'Example Extension Setup', 'Settings header', '__TRIBE_DOMAIN__' ) . '</h3>';
 		$result .= '<div style="margin-left: 20px;">';
 		$result .= '<p>';
-		$result .= esc_html_x( 'Some text here about this settings section.', 'Settings', 'tribe-ext-extension-template' );
+		$result .= esc_html_x( 'Some text here about this settings section.', 'Settings', '__TRIBE_DOMAIN__' );
 		$result .= '</p>';
 		$result .= '</div>';
 
