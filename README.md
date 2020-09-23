@@ -49,8 +49,14 @@ By default, all of these variables will be replaced by the create method from th
 
 ##### Creating a new Extension
 
+Bot will determine the namespace based on the plugin name:
 ```
-bot extension <repo name> create --name=<name> --base=<plugin-repo> [--namespace=<namespace>]
+bot create (tec|et) extension named <plugin name>
+```
+
+Specifically passing a namespace that is different from the plugin name:
+```
+bot create (tec|et) extension named <plugin name> with a namespace of <Plugin_Namespace>
 ```
 
 ##### Setting a dependency
