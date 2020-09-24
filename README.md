@@ -62,7 +62,7 @@ bot create (tec|et) extension named <plugin name> with a namespace of <Plugin_Na
 ##### Setting a dependency
 
 ```
-bot extension <repo name> set <plugin> dependency to <version>
+bot add dependency <plugin-it-depends> version <version> to <extension-repo-name> extension
 ```
 
 _More bot commands to come in the future._
