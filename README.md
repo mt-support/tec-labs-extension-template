@@ -16,7 +16,7 @@ If you have modifications you would like to suggest to our base template, here i
 
 #### If you want to make your own new extension:
 
-1. On Slack use `bot extension <repo name> create --name=<name> --base=<plugin-repo> [--namespace=<namespace>]`
+1. On Slack use `bot create (tec|et) extension named <plugin name>`
 1. Your Extension is currently a functional WordPress plugin at this point! Please refer to our [Good Practices](#good-practices) before the next step.
 1. Zip and release your plugin!
 
