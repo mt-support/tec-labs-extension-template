@@ -6,6 +6,8 @@ use Tribe__Settings_Manager;
 
 /**
  * Do the Settings.
+ *
+ * @TODO Delete file if not using settings
  */
 class Settings {
 
