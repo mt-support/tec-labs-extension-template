@@ -1,5 +1,5 @@
 === __TRIBE_BASE__ Extension: __TRIBE_NAME__ ===
-Contributors: ModernTribe
+Contributors: TheEventsCalendar
 Donate link: http://m.tri.be/29
 Tags: events, calendar
 Requires at least: 4.9
