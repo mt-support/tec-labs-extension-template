@@ -53,7 +53,10 @@ function tribe_extension___TRIBE_SLUG_CLEAN__() {
 	if ( ! class_exists( '\Tribe\Extensions\__TRIBE_NAMESPACE__\Plugin' ) ) {
 		tribe_transient_notice(
 			'__TRIBE_SLUG__',
-			'<p>' . esc_html__( 'Couldn\'t properly load "__TRIBE_BASE__ Extension: __TRIBE_NAME__" the extension was deactivated.', '__TRIBE_DOMAIN__' ) . '</p>'
+			'<p>' . esc_html__( 'Couldn\'t properly load "__TRIBE_BASE__ Extension: __TRIBE_NAME__" the extension was deactivated.', '__TRIBE_DOMAIN__' ) . '</p>',
+			[],
+			// 1 second after that make sure the transiet is removed.
+			1 
 		);
 
 		if ( ! function_exists( 'deactivate_plugins' ) ) {
