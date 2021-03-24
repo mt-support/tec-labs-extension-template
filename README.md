@@ -36,7 +36,7 @@ By default, all of these variables will be replaced by the create method from th
 
 * `__TRIBE_BASE__` - "The Events Calendar" or "Event Tickets"
 * `__TRIBE_NAME__` - Plugin Human-readable name, e.g. "Sample Extension"
-* `__TRIBE_NAMESPACE__` - Which namespace we will use for the plugin, e.g. "SampleExtension"
+* `__TRIBE_NAMESPACE__` - Which namespace we will use for the plugin. Usually the plugin name or the slug in uppercase without spaces, e.g. "SampleExtension"
 * `__TRIBE_SLUG__` - Uses using dashes normally, e.g. "sample-extension"
 * `__TRIBE_DOMAIN__` - Translation domain normally with "tribe-" prefix, e.g. "tec-labs-sample-extension
 * `__TRIBE_SLUG_CLEAN__` - Uses underscores, so it's safe for variables, e.g. "sample_extension
