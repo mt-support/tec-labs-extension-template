@@ -5,8 +5,8 @@
  * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-__TRIBE_SLUG__
  * Description:       __TRIBE_DESCRIPTION__
  * Version:           __TRIBE_VERSION__
- * Author:            Modern Tribe, Inc.
- * Author URI:        http://m.tri.be/1971
+ * Author:            The Events Calendar
+ * Author URI:        https://evnt.is/1971
  * License:           GPL version 3 or any later version
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       __TRIBE_DOMAIN__

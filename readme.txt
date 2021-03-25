@@ -1,9 +1,9 @@
 === __TRIBE_BASE__ Extension: __TRIBE_NAME__ ===
-Contributors: ModernTribe
-Donate link: http://m.tri.be/29
+Contributors: theeventscalendar
+Donate link: https://evnt.is/29
 Tags: events, calendar
 Requires at least: 4.9
-Tested up to: 5.5.1
+Tested up to: 5.7
 Requires PHP: 5.6
 Stable tag: __TRIBE_VERSION__
 License: GPL version 3 or any later version
