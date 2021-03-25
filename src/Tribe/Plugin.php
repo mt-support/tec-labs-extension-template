@@ -62,7 +62,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @var Settings
 	 *
-	 * @TODO Remove if not using settings
+	 * TODO: Remove if not using settings
 	 */
 	private $settings;
 
@@ -91,7 +91,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 		}
 
 		// Do the settings.
-		// @TODO Remove if not using settings
+		// TODO: Remove if not using settings
 		$this->get_settings();
 
 		// Start binds.
@@ -138,7 +138,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 * @return string
 	 * @see \Tribe\Extensions\__TRIBE_NAMESPACE__\Settings::set_options_prefix()
 	 *
-	 * @TODO Remove if not using settings
+	 * TODO: Remove if not using settings
 	 */
 	private function get_options_prefix() {
 		return (string) str_replace( '-', '_', 'tribe-ext-__TRIBE_SLUG__' );
@@ -149,7 +149,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @return Settings
 	 *
-	 * @TODO Remove if not using settings
+	 * TODO: Remove if not using settings
 	 */
 	private function get_settings() {
 		if ( empty( $this->settings ) ) {
@@ -164,7 +164,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @return array
 	 *
-	 * @TODO Remove if not using settings
+	 * TODO: Remove if not using settings
 	 */
 	public function get_all_options() {
 		$settings = $this->get_settings();
@@ -180,7 +180,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @return array
 	 *
-	 * @TODO Remove if not using settings
+	 * TODO: Remove if not using settings
 	 */
 	public function get_option( $option, $default ='' ) {
 		$settings = $this->get_settings();
