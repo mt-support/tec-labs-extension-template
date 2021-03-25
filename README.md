@@ -1,6 +1,6 @@
 ## What and Why?
 
-This is the Modern Tribe Extension Template. It allows you to easily extend our plugins: The Events Calendar, Event Tickets, and their associated add-on plugins.
+This is the TEC Labs Extension Template. It allows you to easily extend our plugins: The Events Calendar, Event Tickets, and their associated add-on plugins.
 
 The primary benefits of using this template is that it's gets you up-and-running quicker than building a custom plugin yourself, and it's best to extend one plugin via another plugin instead of adding custom code to your child theme's `functions.php` file.
 
@@ -28,7 +28,7 @@ If you have modifications you would like to suggest to our base template, here i
 * Register any other classes you will need inside of `src/Tribe/Plugin.php` on the method `register` after the line `// Start binds.` and before `// End binds.`.
 * Sanitize all input and escape all output, as appropriate.
 * Double-check your plugin's slug, name, and descriptions still apply to the end result of what your code actually accomplishes.
-* Generate your *.pot* file by running this WP-CLI command: `wp i18n make-pot . languages/tribe-ext-extension-template.pot --headers='{"Report-Msgid-Bugs-To":"Modern Tribe, Inc. <https://support.theeventscalendar.com/>"}'`
+* Generate your *.pot* file by running this WP-CLI command: `wp i18n make-pot . languages/tribe-ext-extension-template.pot --headers='{"Report-Msgid-Bugs-To":"The Events Calendar <https://support.theeventscalendar.com/>"}'`
 
 #### Extension Template Variables
 
