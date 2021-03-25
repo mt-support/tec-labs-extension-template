@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       __TRIBE_BASE__ Extension: __TRIBE_NAME__
  * Plugin URI:        __TRIBE_URL__
- * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-__TRIBE_SLUG__
+ * GitHub Plugin URI: https://github.com/mt-support/tec-labs-__TRIBE_SLUG__
  * Description:       __TRIBE_DESCRIPTION__
  * Version:           __TRIBE_VERSION__
  * Author:            The Events Calendar

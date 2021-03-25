@@ -28,7 +28,7 @@ If you have modifications you would like to suggest to our base template, here i
 * Register any other classes you will need inside of `src/Tribe/Plugin.php` on the method `register` after the line `// Start binds.` and before `// End binds.`.
 * Sanitize all input and escape all output, as appropriate.
 * Double-check your plugin's slug, name, and descriptions still apply to the end result of what your code actually accomplishes.
-* Generate your *.pot* file by running this WP-CLI command: `wp i18n make-pot . languages/tribe-ext-extension-template.pot --headers='{"Report-Msgid-Bugs-To":"The Events Calendar <https://support.theeventscalendar.com/>"}'`
+* Generate your *.pot* file by running this WP-CLI command: `wp i18n make-pot . languages/tec-labs-extension-template.pot --headers='{"Report-Msgid-Bugs-To":"The Events Calendar <https://support.theeventscalendar.com/>"}'`
 * Remove this `README.md` file.
 
 #### Extension Template Variables
@@ -39,8 +39,8 @@ By default, all of these variables will be replaced by the create method from th
 * `__TRIBE_NAME__` - Plugin Human-readable name, e.g. "Sample Extension"
 * `__TRIBE_NAMESPACE__` - Which namespace we will use for the plugin. Usually the plugin name or the slug in uppercase without spaces, e.g. "SampleExtension"
 * `__TRIBE_SLUG__` - Uses using dashes normally, e.g. "sample-extension"
-* `__TRIBE_DOMAIN__` - Translation domain normally with "tribe-" prefix, e.g. "tec-labs-sample-extension
-* `__TRIBE_SLUG_CLEAN__` - Uses underscores, so it's safe for variables, e.g. "sample_extension
+* `__TRIBE_DOMAIN__` - Translation domain normally with "tribe-" prefix, e.g. "tec-labs-sample-extension"
+* `__TRIBE_SLUG_CLEAN__` - Uses underscores, so it's safe for variables, e.g. "sample_extension"
 * `__TRIBE_SLUG_CLEAN_UPPERCASE__` - Uppercase of clean slug, e.g. "Sample_Extension" *<== Isn't this supposed to be ALLCAPS like "SAMPLE_EXTENSION" so `define( 'TRIBE_EXTENSION_SAMPLE_EXTENSION_FILE', __FILE__ );` ?*
 * `__TRIBE_URL__` - The URL of the extension page, by default empty. Usually "https://theeventscalendar.com/extensions/sample-extension/"
 * `__TRIBE_VERSION__` - Version number of the extension, by default empty. Follows the "1.0.0" format
