@@ -6,6 +6,8 @@ use Tribe__Settings_Manager;
 
 /**
  * Do the Settings.
+ *
+ * TODO: Delete file if not using settings
  */
 class Settings {
 
@@ -80,7 +82,7 @@ class Settings {
 	 */
 	private function set_options_prefix( $options_prefix = '' ) {
 		if ( empty( $opts_prefix ) ) {
-			$opts_prefix = str_replace( '-', '_', 'tribe-ext-extension-template' ); // The text domain.
+			$opts_prefix = str_replace( '-', '_', '__TRIBE_DOMAIN__' ); // The text domain.
 		}
 
 		$opts_prefix = $opts_prefix . '_';
@@ -107,6 +109,7 @@ class Settings {
 	 * @see tribe_get_option()
 	 *
 	 * @param string $key
+	 * @param string $default
 	 *
 	 * @return mixed
 	 */
@@ -198,13 +201,17 @@ class Settings {
 	/**
 	 * Here is an example of removing settings from Events > Settings > General tab > "Map Settings" section
 	 * that are specific to Google Maps.
+	 *
+	 * TODO: Remove this method and the corresponding hook in `__construct()` if you don't want to remove any settings.
 	 */
 	public function remove_settings() {
-		// "Enable Google Maps" checkbox
+		// Remove "Enable Google Maps" checkbox
 		$this->settings_helper->remove_field( 'embedGoogleMaps', 'general' );
-		// "Map view search distance limit" (default of 25)
+
+		// Remove "Map view search distance limit" (default of 25)
 		$this->settings_helper->remove_field( 'geoloc_default_geofence', 'general' );
-		// "Google Maps default zoom level" (0-21, default of 10)
+
+		// Remove "Google Maps default zoom level" (0-21, default of 10)
 		$this->settings_helper->remove_field( 'embedGoogleMapsZoom', 'general' );
 	}
 
@@ -212,7 +219,7 @@ class Settings {
 	 * Adds a new section of fields to Events > Settings > General tab, appearing after the "Map Settings" section
 	 * and before the "Miscellaneous Settings" section.
 	 *
-	 * TODO: Move it to where you want and update this docblock. If you like it here, just delete this TODO.
+	 * TODO: Move the setting to where you want and update this docblock. If you like it here, just delete this TODO.
 	 */
 	public function add_settings() {
 		$fields = [
@@ -222,10 +229,10 @@ class Settings {
 				'html' => $this->get_example_intro_text(),
 			],
 			// TODO: Settings heading end.
-			'a_setting' => [ // TODO
+			'a_setting' => [ // TODO: Change setting.
 				'type'            => 'text',
-				'label'           => esc_html__( 'xxx try this', '__TRIBE_DOMAIN__' ),
-				'tooltip'         => sprintf( esc_html__( 'Enter your custom URL, including "http://" or "https://", for example %s.', '__TRIBE_DOMAIN__' ), '<code>https://wpshindig.com/events/</code>' ),
+				'label'           => esc_html__( 'Example setting', '__TRIBE_DOMAIN__' ),
+				'tooltip'         => sprintf( esc_html__( 'Example setting description. Enter your custom URL, including "http://" or "https://", for example %s.', '__TRIBE_DOMAIN__' ), '<code>https://demo.theeventscalendar.com/</code>' ),
 				'validation_type' => 'html',
 			],
 		];
@@ -269,7 +276,7 @@ class Settings {
 		$result = '<h3>' . esc_html_x( 'Example Extension Setup', 'Settings header', '__TRIBE_DOMAIN__' ) . '</h3>';
 		$result .= '<div style="margin-left: 20px;">';
 		$result .= '<p>';
-		$result .= esc_html_x( 'Some text here about this settings section.', 'Settings', '__TRIBE_DOMAIN__' );
+		$result .= esc_html_x( 'Some text here about this settings section.', 'Setting section description', '__TRIBE_DOMAIN__' );
 		$result .= '</p>';
 		$result .= '</div>';
 

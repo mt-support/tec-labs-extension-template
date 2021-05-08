@@ -30,6 +30,15 @@ class PUE extends \tad_DI52_ServiceProvider {
 	private static $pue_slug = 'extension-__TRIBE_SLUG__';
 
 	/**
+	 * Whether to load PUE or not.
+	 *
+	 * @since __TRIBE_VERSION__
+	 *
+	 * @var string
+	 */
+	public static $is_active = false;
+
+	/**
 	 * Plugin update URL.
 	 *
 	 * @since __TRIBE_VERSION__
@@ -55,6 +64,11 @@ class PUE extends \tad_DI52_ServiceProvider {
 	public function register() {
 		$this->container->singleton( static::class, $this );
 		$this->container->singleton( 'extension.__TRIBE_SLUG_CLEAN__.pue', $this );
+
+		// Bail to avoid notice.
+		if ( ! static:: $is_active ) {
+			return;
+		}
 
 		add_action( 'tribe_helper_activation_complete', [ $this, 'load_plugin_update_engine' ] );
 
