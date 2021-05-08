@@ -45,7 +45,7 @@ function tribe_extension___TRIBE_SLUG_CLEAN__() {
 	// Register the namespace so we can the plugin on the service provider registration.
 	Tribe__Autoloader::instance()->register_prefix(
 		'\\Tribe\\Extensions\\__TRIBE_NAMESPACE__\\',
-		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tribe',
+		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tec',
 		'__TRIBE_SLUG__'
 	);
 
