@@ -24,8 +24,8 @@ If you have modifications you would like to suggest to our base template, here i
 
 * Verify if you need any dependencies to activate your plugin, if so use the bot command to [set a dependency](#setting-a-dependency)
 * Set the `== Changelog ==` section of `readme.txt`.
-* Remove the classes not used from the `src/Tribe` folder.
-* Register any other classes you will need inside of `src/Tribe/Plugin.php` on the method `register` after the line `// Start binds.` and before `// End binds.`.
+* Remove the classes not used from the `src/Tec` folder.
+* Register any other classes you will need inside of `src/Tec/Plugin.php` on the method `register` after the line `// Start binds.` and before `// End binds.`.
 * Sanitize all input and escape all output, as appropriate.
 * Double-check your plugin's slug, name, and descriptions still apply to the end result of what your code actually accomplishes.
 * Generate your *.pot* file by running this WP-CLI command: `wp i18n make-pot . languages/tec-labs-extension-template.pot --headers='{"Report-Msgid-Bugs-To":"The Events Calendar <https://support.theeventscalendar.com/>"}'`
