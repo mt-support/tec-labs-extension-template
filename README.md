@@ -41,7 +41,7 @@ By default, all of these variables will be replaced by the create method from th
 * `__TRIBE_SLUG__` - Uses using dashes normally, e.g. "sample-extension"
 * `__TRIBE_DOMAIN__` - Translation domain normally with "tribe-" prefix, e.g. "tec-labs-sample-extension"
 * `__TRIBE_SLUG_CLEAN__` - Uses underscores, so it's safe for variables, e.g. "sample_extension"
-* `__TRIBE_SLUG_CLEAN_UPPERCASE__` - Uppercase of clean slug, e.g. "Sample_Extension" *<== Isn't this supposed to be ALLCAPS like "SAMPLE_EXTENSION" so `define( 'TRIBE_EXTENSION_SAMPLE_EXTENSION_FILE', __FILE__ );` ?*
+* `__TRIBE_SLUG_CLEAN_ALLCAPS__` - Allcaps of clean slug, e.g. "SAMPLE_EXTENSION"
 * `__TRIBE_URL__` - The URL of the extension page, by default empty. Usually "https://theeventscalendar.com/extensions/sample-extension/"
 * `__TRIBE_VERSION__` - Version number of the extension, by default empty. Follows the "1.0.0" format
 * `__TRIBE_DESCRIPTION__` - The description of the extension, by default empty.
