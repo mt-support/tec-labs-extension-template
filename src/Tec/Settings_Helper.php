@@ -4,7 +4,7 @@ namespace Tribe\Extensions\__TRIBE_NAMESPACE__;
 use Tribe__Main;
 
 /**
- * Helper for inserting/removing fields on the WP Admin Tribe Settings pages
+ * Helper for inserting/removing fields on the WP Admin TEC Settings pages
  *
  * @TODO Delete file if not using settings
  */
@@ -32,7 +32,7 @@ class Settings_Helper {
 	private $insert_fields_below = [];
 
 	/**
-	 * Array of settings being added to a Tribe Settings tab
+	 * Array of settings being added to a TEC Settings tab
 	 *
 	 * @var array
 	 */
@@ -50,7 +50,7 @@ class Settings_Helper {
 
 
 	/**
-	 * Add a field to a Tribe Settings tab
+	 * Add a field to a TEC Settings tab
 	 *
 	 * @param string $field_key         Option key for your setting. Example: 'fancyOptionName'.
 	 * @param array  $field_args        See Tribe__Field() for available args.
@@ -67,7 +67,7 @@ class Settings_Helper {
 	}
 
 	/**
-	 * Add multiple fields to a Tribe Settings tab
+	 * Add multiple fields to a TEC Settings tab
 	 *
 	 * @param array  $fields            Fields that will be added, expects 'fieldname' => (array) args.
 	 * @param string $setting_tab       Settings tab where this will be added. Example: 'display'.
@@ -110,7 +110,7 @@ class Settings_Helper {
 
 
 	/**
-	 * Attached to 'tribe_settings_tab_fields' to add/remove this class' fields on Tribe Settings pages.
+	 * Attached to 'tribe_settings_tab_fields' to add/remove this class' fields on TEC Settings pages.
 	 *
 	 * @param array  $fields The fields within tribe settings page.
 	 * @param string $tab    The settings tab key.

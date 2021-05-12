@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       __TRIBE_BASE__ Extension: __TRIBE_NAME__
  * Plugin URI:        __TRIBE_URL__
- * GitHub Plugin URI: https://github.com/mt-support/tribe-ext-__TRIBE_SLUG__
+ * GitHub Plugin URI: https://github.com/mt-support/tec-labs-__TRIBE_SLUG__
  * Description:       __TRIBE_DESCRIPTION__
  * Version:           __TRIBE_VERSION__
  * Author:            The Events Calendar
@@ -45,7 +45,7 @@ function tribe_extension___TRIBE_SLUG_CLEAN__() {
 	// Register the namespace so we can the plugin on the service provider registration.
 	Tribe__Autoloader::instance()->register_prefix(
 		'\\Tribe\\Extensions\\__TRIBE_NAMESPACE__\\',
-		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tribe',
+		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tec',
 		'__TRIBE_SLUG__'
 	);
 
@@ -55,7 +55,7 @@ function tribe_extension___TRIBE_SLUG_CLEAN__() {
 			'__TRIBE_SLUG__',
 			'<p>' . esc_html__( 'Couldn\'t properly load "__TRIBE_BASE__ Extension: __TRIBE_NAME__" the extension was deactivated.', '__TRIBE_DOMAIN__' ) . '</p>',
 			[],
-			// 1 second after that make sure the transiet is removed.
+			// 1 second after that make sure the transient is removed.
 			1 
 		);
 
