@@ -6,7 +6,7 @@ The primary benefits of using this template is that it's gets you up-and-running
 
 We ensure your new extension does not run if its required base plugin is not activated, which helps avoid fatal errors and means fewer `class_exists()` checks are applicable.
 
-Extensions have been available since The Events Calendar version 4.3.3 (November 16, 2016). If you try to use this template to work with versions before this date, your extension will not run at all.
+Extensions have been available since The Events Calendar version 4.3.3 (November 16, 2016). If you try to get this template to work with versions before this date, your extension will not run at all.
 
 Newer extensions will only be compatible with the version of The Events Calendar 5.1.1 or newer.
 
@@ -22,9 +22,9 @@ If you have modifications you would like to suggest to our base template, here i
 
 #### Good Practices
 
-* Verify if you need any dependencies to activate your plugin, if so use the bot command to [set a dependency](#setting-a-dependency)
+* Verify if you need any dependencies to activate your plugin. If so, use the bot command to [set a dependency](#setting-a-dependency)
 * Set the `== Changelog ==` section of `readme.txt`.
-* Remove the classes not used from the `src/Tec` folder.
+* Remove the unused classes from the `src/Tec` folder.
 * Register any other classes you will need inside of `src/Tec/Plugin.php` on the method `register` after the line `// Start binds.` and before `// End binds.`.
 * Sanitize all input and escape all output, as appropriate.
 * Double-check your plugin's slug, name, and descriptions still apply to the end result of what your code actually accomplishes.
@@ -33,7 +33,7 @@ If you have modifications you would like to suggest to our base template, here i
 
 #### Extension Template Variables
 
-By default, all of these variables will be replaced by the create method from the slack bot, but if you are creating your extension manually you will need to replace all the below.
+By default, all of these variables will be replaced by the create method from the slack bot, but if you are creating your extension manually you will need to find/replace on all of the below.
 
 * `__TRIBE_BASE__` - "The Events Calendar" or "Event Tickets"
 * `__TRIBE_NAME__` - Plugin Human-readable name, e.g. "Sample Extension"
