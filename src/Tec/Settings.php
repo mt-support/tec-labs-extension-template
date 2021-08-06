@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Settings Object.
+ *
+ * @since __TRIBE_VERSION__
+ *
+ * @package Tribe\Extensions\__TRIBE_NAMESPACE__
+ */
 namespace Tribe\Extensions\__TRIBE_NAMESPACE__;
 
 use Tribe__Settings_Manager;

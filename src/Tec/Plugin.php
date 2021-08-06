@@ -1,10 +1,18 @@
 <?php
+/**
+ * Plugin Class.
+ *
+ * @since __TRIBE_VERSION__
+ *
+ * @package Tribe\Extensions\__TRIBE_NAMESPACE__
+ */
+
 namespace Tribe\Extensions\__TRIBE_NAMESPACE__;
 
 /**
  * Class Plugin
  *
- * @since   __TRIBE_VERSION__
+ * @since __TRIBE_VERSION__
  *
  * @package Tribe\Extensions\__TRIBE_NAMESPACE__
  */
@@ -136,6 +144,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 * Settings_Helper will append a trailing underscore before each option.
 	 *
 	 * @return string
+     *
 	 * @see \Tribe\Extensions\__TRIBE_NAMESPACE__\Settings::set_options_prefix()
 	 *
 	 * TODO: Remove if not using settings
@@ -182,7 +191,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * TODO: Remove if not using settings
 	 */
-	public function get_option( $option, $default ='' ) {
+	public function get_option( $option, $default = '' ) {
 		$settings = $this->get_settings();
 
 		return $settings->get_option( $option, $default );

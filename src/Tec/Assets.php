@@ -12,6 +12,7 @@
  *
  * @package Tribe\Extensions\__TRIBE_NAMESPACE__
  */
+
 namespace Tribe\Extensions\__TRIBE_NAMESPACE__;
 
 /**

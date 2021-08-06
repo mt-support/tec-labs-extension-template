@@ -37,8 +37,8 @@ define( 'TRIBE_EXTENSION___TRIBE_SLUG_CLEAN_UPPERCASE___FILE', __FILE__ );
  * @since __TRIBE_VERSION__
  */
 function tribe_extension___TRIBE_SLUG_CLEAN__() {
-	// When we dont have autoloader from common we bail.
-	if  ( ! class_exists( 'Tribe__Autoloader' ) ) {
+	// When we don't have autoloader from common we bail.
+	if ( ! class_exists( 'Tribe__Autoloader' ) ) {
 		return;
 	}
 
@@ -56,7 +56,7 @@ function tribe_extension___TRIBE_SLUG_CLEAN__() {
 			'<p>' . esc_html__( 'Couldn\'t properly load "__TRIBE_BASE__ Extension: __TRIBE_NAME__" the extension was deactivated.', '__TRIBE_DOMAIN__' ) . '</p>',
 			[],
 			// 1 second after that make sure the transient is removed.
-			1 
+			1
 		);
 
 		if ( ! function_exists( 'deactivate_plugins' ) ) {

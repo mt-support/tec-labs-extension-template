@@ -14,7 +14,7 @@ use Tribe__Abstract_Plugin_Register as Abstract_Plugin_Register;
 /**
  * Class Plugin_Register.
  *
- * @since   __TRIBE_VERSION__
+ * @since __TRIBE_VERSION__
  *
  * @package Tribe\Extensions\__TRIBE_NAMESPACE__
  *
