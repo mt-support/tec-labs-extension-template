@@ -14,7 +14,7 @@
  *  remove_action( 'some_action', [ tribe( 'extension.__TRIBE_SLUG_CLEAN__.hooks' ), 'some_method' ] );
  * ```
  *
- * @since   __TRIBE_VERSION__
+ * @since __TRIBE_VERSION__
  *
  * @package Tribe\Extensions\__TRIBE_NAMESPACE__;
  */
@@ -26,7 +26,7 @@ use Tribe__Main as Common;
 /**
  * Class Hooks.
  *
- * @since   __TRIBE_VERSION__
+ * @since __TRIBE_VERSION__
  *
  * @package Tribe\Extensions\__TRIBE_NAMESPACE__;
  */
