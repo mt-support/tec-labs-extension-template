@@ -42,7 +42,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * @var string
 	 */
-	const FILE = TRIBE_EXTENSION___TRIBE_SLUG_CLEAN_UPPERCASE___FILE;
+	const FILE = TRIBE_EXTENSION___TRIBE_SLUG_CLEAN_ALLCAPS___FILE;
 
 	/**
 	 * @since __TRIBE_VERSION__
