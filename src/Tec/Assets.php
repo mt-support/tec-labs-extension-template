@@ -2,7 +2,7 @@
 /**
  * Handles registering all Assets for the Plugin.
  *
- * To remove a Asset you can use the global assets handler:
+ * To remove an Asset you can use the global assets handler:
  *
  * ```php
  *  tribe( 'assets' )->remove( 'asset-name' );
