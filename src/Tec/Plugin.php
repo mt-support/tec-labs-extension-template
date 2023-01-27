@@ -150,7 +150,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 * TODO: Remove if not using settings
 	 */
 	private function get_options_prefix() {
-		return (string) str_replace( '-', '_', 'tribe-ext-__TRIBE_SLUG__' );
+		return (string) str_replace( '-', '_', 'tec-labs-__TRIBE_SLUG__' );
 	}
 
 	/**
