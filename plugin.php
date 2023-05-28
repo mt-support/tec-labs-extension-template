@@ -29,7 +29,7 @@
  *
  * @var string Base file that loaded the plugin.
  */
-define( 'TRIBE_EXTENSION___TRIBE_SLUG_CLEAN_UPPERCASE___FILE', __FILE__ );
+define( 'TRIBE_EXTENSION___TRIBE_SLUG_CLEAN_ALLCAPS___FILE', __FILE__ );
 
 /**
  * Register and load the service provider for loading the extension.
