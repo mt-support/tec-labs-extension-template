@@ -9,6 +9,7 @@
 
 namespace Tribe\Extensions\__TRIBE_NAMESPACE__;
 
+use TEC\Common\Contracts\Service_Provider;
 /**
  * Class Plugin
  *
@@ -16,7 +17,7 @@ namespace Tribe\Extensions\__TRIBE_NAMESPACE__;
  *
  * @package Tribe\Extensions\__TRIBE_NAMESPACE__
  */
-class Plugin extends \tad_DI52_ServiceProvider {
+class Plugin extends Service_Provider {
 	/**
 	 * Stores the version for the plugin.
 	 *
